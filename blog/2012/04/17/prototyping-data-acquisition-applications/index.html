@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Pronoy Chopra's Blog</title>
+  <title>Prototyping data acquisition applications - Pronoy Chopra's Blog</title>
   <meta name="author" content="Pronoy Chopra">
 
   
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://DarkSector.github.com">
+  <link rel="canonical" href="http://DarkSector.github.com/blog/2012/04/17/prototyping-data-acquisition-applications">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -62,15 +62,12 @@
 </nav>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article class="hentry" role="article">
   
-  
-  
-    <article>
-      
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2012/04/17/prototyping-data-acquisition-applications/">Prototyping Data Acquisition Applications</a></h1>
+      <h1 class="entry-title">Prototyping Data Acquisition Applications</h1>
     
     
       <p class="meta">
@@ -93,7 +90,7 @@
   </header>
 
 
-  <div class="entry-content"><p>In order to build an application that processes or even simply displays data being acquired by say the serial port, it is not important to actually have the device connected.</p>
+<div class="entry-content"><p>In order to build an application that processes or even simply displays data being acquired by say the serial port, it is not important to actually have the device connected.</p>
 
 <p>We can build virtual serial pairs and have our backend transmit and acquire dummy data and then test the processing logic. This is one of the reasons why I love Python. It just doesn&#8217;t get in your way and gets you all the stuff you need to get started ASAP.</p>
 
@@ -163,22 +160,16 @@
 
 <p>Yeah, so as it&#8217;s pretty obvious, dummy feeds the data and receiver receives it and just dumps it out on STDOUT. Now, that I&#8217;ve got this data, I need to be able to manipulate it to be able to send it to my application server. I think I&#8217;ll need the involvement of JSON here. Must experiment.</p>
 </div>
-  
-  
 
 
-    </article>
-  
-  
-    <article>
+  <footer>
+    <p class="meta">
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/04/17/octopress-problem/">Octopress Problem</a></h1>
-    
-    
-      <p class="meta">
-        
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Pronoy Chopra</span></span>
+
+      
 
 
 
@@ -190,43 +181,38 @@
   
 
 
-<time datetime="2012-04-17T00:52:00+05:30" pubdate data-updated="true">Apr 17<span>th</span>, 2012</time>
-        
-      </p>
+<time datetime="2012-04-17T03:15:00+05:30" pubdate data-updated="true">Apr 17<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/code/'>Code</a>, <a class='category' href='/blog/categories/hardware/'>Hardware</a>, <a class='category' href='/blog/categories/python/'>Python</a>, <a class='category' href='/blog/categories/serial/'>Serial</a>
+  
+</span>
+
+
+    </p>
     
-  </header>
-
-
-  <div class="entry-content"><figure class='code'><figcaption><span>CNAME</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span><span class="nb">echo</span> <span class="s2">&quot;pronoy.blog.in&quot;</span> &gt;&gt; CNAME
-</span><span class='line'><span class="nv">$ </span>git add CNAME
-</span><span class='line'><span class="nv">$ </span>git commit -m <span class="s1">&#39;added CNAME&#39;</span>
-</span><span class='line'><span class="nv">$ </span>git push origin master
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>every time I deploy it removes the CNAME record from the master branch. I wonder how to get it deployed properly.</p>
-
-<p>Really weird, I&#8217;ll have to keep looking.
-Oh btw, it&#8217;s my birthday today :)</p>
-
-<p>EDIT: resolved, you need to generate the CNAME in source for it to automatically pick it up and commit it to the master. Smart.</p>
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://DarkSector.github.com/blog/2012/04/17/prototyping-data-acquisition-applications/" data-via="" data-counturl="http://DarkSector.github.com/blog/2012/04/17/prototyping-data-acquisition-applications/" >Tweet</a>
+  
+  
+  
 </div>
-  
-  
 
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/04/17/octopress-problem/" title="Previous Post: Octopress problem">&laquo; Octopress problem</a>
+      
+      
+    </p>
+  </footer>
+</article>
 
-    </article>
-  
-  <div class="pagination">
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
 </div>
+
 <aside class="sidebar">
   
     <section>
@@ -247,7 +233,7 @@ Oh btw, it&#8217;s my birthday today :)</p>
 <section>
   <h1>GitHub Repos</h1>
   <ul id="gh_repos">
-    <li class="loading">Status updating&#8230;</li>
+    <li class="loading">Status updating...</li>
   </ul>
   
   <a href="https://github.com/DarkSector">@DarkSector</a> on GitHub
@@ -280,6 +266,7 @@ Oh btw, it&#8217;s my birthday today :)</p>
 
   
 </aside>
+
 
     </div>
   </div>
