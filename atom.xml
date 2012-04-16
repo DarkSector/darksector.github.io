@@ -4,7 +4,7 @@
   <title><![CDATA[Pronoy Chopra's Blog]]></title>
   <link href="http://DarkSector.github.com/atom.xml" rel="self"/>
   <link href="http://DarkSector.github.com/"/>
-  <updated>2012-04-17T00:45:15+05:30</updated>
+  <updated>2012-04-17T02:34:07+05:30</updated>
   <id>http://DarkSector.github.com/</id>
   <author>
     <name><![CDATA[Pronoy Chopra]]></name>
@@ -12,5 +12,27 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Octopress problem]]></title>
+    <link href="http://DarkSector.github.com/blog/2012/04/17/octopress-problem/"/>
+    <updated>2012-04-17T00:52:00+05:30</updated>
+    <id>http://DarkSector.github.com/blog/2012/04/17/octopress-problem</id>
+    <content type="html"><![CDATA[<figure class='code'><figcaption><span>CNAME</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span><span class="nb">echo</span> <span class="s2">&quot;pronoy.blog.in&quot;</span> &gt;&gt; CNAME
+</span><span class='line'><span class="nv">$ </span>git add CNAME
+</span><span class='line'><span class="nv">$ </span>git commit -m <span class="s1">&#39;added CNAME&#39;</span>
+</span><span class='line'><span class="nv">$ </span>git push origin master
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>every time I deploy it removes the CNAME record from the master branch. I wonder how to get it deployed properly.</p>
+
+<p>Really weird, I&#8217;ll have to keep looking.</p>
+]]></content>
+  </entry>
   
 </feed>
