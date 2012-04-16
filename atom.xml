@@ -4,7 +4,7 @@
   <title><![CDATA[Pronoy Chopra's Blog]]></title>
   <link href="http://DarkSector.github.com/atom.xml" rel="self"/>
   <link href="http://DarkSector.github.com/"/>
-  <updated>2012-04-17T02:42:51+05:30</updated>
+  <updated>2012-04-17T02:45:59+05:30</updated>
   <id>http://DarkSector.github.com/</id>
   <author>
     <name><![CDATA[Pronoy Chopra]]></name>
@@ -33,6 +33,8 @@
 
 <p>Really weird, I&#8217;ll have to keep looking.
 Oh btw, it&#8217;s my birthday today :)</p>
+
+<p>EDIT: resolved, you need to generate the CNAME in source for it to automatically pick it up and commit it to the master. Smart.</p>
 ]]></content>
   </entry>
   
