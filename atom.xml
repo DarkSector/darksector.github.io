@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Pronoy Chopra's Blog]]></title>
+  <link href="http://DarkSector.github.com/atom.xml" rel="self"/>
+  <link href="http://DarkSector.github.com/"/>
+  <updated>2012-04-16T23:57:32+05:30</updated>
+  <id>http://DarkSector.github.com/</id>
+  <author>
+    <name><![CDATA[Pronoy Chopra]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+</feed>
