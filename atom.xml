@@ -4,7 +4,7 @@
   <title><![CDATA[Pronoy Chopra's Blog]]></title>
   <link href="http://DarkSector.github.com/atom.xml" rel="self"/>
   <link href="http://DarkSector.github.com/"/>
-  <updated>2012-04-17T02:34:07+05:30</updated>
+  <updated>2012-04-17T02:42:51+05:30</updated>
   <id>http://DarkSector.github.com/</id>
   <author>
     <name><![CDATA[Pronoy Chopra]]></name>
@@ -31,7 +31,8 @@
 
 <p>every time I deploy it removes the CNAME record from the master branch. I wonder how to get it deployed properly.</p>
 
-<p>Really weird, I&#8217;ll have to keep looking.</p>
+<p>Really weird, I&#8217;ll have to keep looking.
+Oh btw, it&#8217;s my birthday today :)</p>
 ]]></content>
   </entry>
   
