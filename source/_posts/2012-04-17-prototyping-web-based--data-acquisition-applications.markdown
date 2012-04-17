@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Prototyping data acquisition applications"
+title: "Prototyping web based data acquisition applications"
 date: 2012-04-17 03:15
 comments: true
 categories: [Python, Code, Serial, Hardware]
