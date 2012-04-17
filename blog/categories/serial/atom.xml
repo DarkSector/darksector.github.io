@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Serial | Pronoy Chopra's Blog]]></title>
   <link href="http://DarkSector.github.com/blog/categories/serial/atom.xml" rel="self"/>
   <link href="http://DarkSector.github.com/"/>
-  <updated>2012-04-17T03:33:39+05:30</updated>
+  <updated>2012-04-17T14:02:26+05:30</updated>
   <id>http://DarkSector.github.com/</id>
   <author>
     <name><![CDATA[Pronoy Chopra]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Prototyping data acquisition applications]]></title>
-    <link href="http://DarkSector.github.com/blog/2012/04/17/prototyping-data-acquisition-applications/"/>
+    <link href="http://DarkSector.github.com/blog/2012/04/17/prototyping-web-based--data-acquisition-applications/"/>
     <updated>2012-04-17T03:15:00+05:30</updated>
-    <id>http://DarkSector.github.com/blog/2012/04/17/prototyping-data-acquisition-applications</id>
+    <id>http://DarkSector.github.com/blog/2012/04/17/prototyping-web-based--data-acquisition-applications</id>
     <content type="html"><![CDATA[<p>In order to build an application that processes or even simply displays data being acquired by say the serial port, it is not important to actually have the device connected.</p>
 
 <p>We can build virtual serial pairs and have our backend transmit and acquire dummy data and then test the processing logic. This is one of the reasons why I love Python. It just doesn't get in your way and gets you all the stuff you need to get started ASAP.</p>
