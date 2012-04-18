@@ -3,7 +3,7 @@ layout: post
 title: "Octopress problem"
 date: 2012-04-17 00:52
 comments: true
-categories: [Octopress, CNAME, "Custom Domain"]
+categories: [Octopress, CNAME, "Custom Domain", Code]
 ---
 
 ``` bash CNAME
@@ -13,7 +13,7 @@ $ git commit -m 'added CNAME'
 $ git push origin master 
 ```
 
-every time I deploy it removes the CNAME record from the master branch. I wonder how to get it deployed properly.
+Every time I deploy it removes the CNAME record from the master branch. I wonder how to get it deployed properly.
 
 Really weird, I'll have to keep looking.
 Oh btw, it's my birthday today :)
