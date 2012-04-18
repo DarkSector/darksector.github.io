@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Python | Pronoy Chopra's Blog]]></title>
-  <link href="http://DarkSector.github.com/blog/categories/python/atom.xml" rel="self"/>
+  <title><![CDATA[Category: Flask | Pronoy Chopra's Blog]]></title>
+  <link href="http://DarkSector.github.com/blog/categories/flask/atom.xml" rel="self"/>
   <link href="http://DarkSector.github.com/"/>
   <updated>2012-04-18T11:02:26+05:30</updated>
   <id>http://DarkSector.github.com/</id>
@@ -79,63 +79,6 @@ submit = SubmitField('Submit')
 <p>Notice how the region field in StarterForm would require database driven choices? Yeah I need to figure out how to do that in my views function. It's important to render the views otherwise it might break the whole thing by circular imports.</p>
 
 <p>Also since Forms are classes it would be difficult to pass the arguments when calling the form in views. Okay let's attempt that.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Prototyping web based data acquisition applications]]></title>
-    <link href="http://DarkSector.github.com/blog/prototyping-web-based--data-acquisition-applications/"/>
-    <updated>2012-04-17T03:15:00+05:30</updated>
-    <id>http://DarkSector.github.com/blog/prototyping-web-based--data-acquisition-applications</id>
-    <content type="html"><![CDATA[<p>In order to build an application that processes or even simply displays data being acquired by say the serial port, it is not important to actually have the device connected.</p>
-
-<p>We can build virtual serial pairs and have our backend transmit and acquire dummy data and then test the processing logic. This is one of the reasons why I love Python. It just doesn't get in your way and gets you all the stuff you need to get started ASAP.</p>
-
-<p>So I've resorted to <a href="http://pyserial.sourceforge.net/">PySerial</a> and this application called <a href="http://code.google.com/p/macosxvirtualserialport/">Virtual Serial Port</a>. The latter creates a pair in the /dev and the former is used to put in the data from one end and retrieve it at the other. An important question one could ask, why not just generate dummy data than getting it passed through a virtual serial pipe? Answer is that it's the closest way to the real thing, might as well get it done.</p>
-
-<p>So, after having created serial ports, now to simply create two scripts that pour and retrieve data.</p>
-
-<p>``` python Dummy-feeder.py</p>
-
-<h1>!/usr/bin/python</h1>
-
-<p>import serial
-import random
-import time</p>
-
-<p><em>portname = '/dev/master'
-dumper = serial.Serial(</em>portname,115200,timeout=1)
-while(1):</p>
-
-<pre><code>l = random.randint(0,1023)
-k = random.choice('abcdef')
-dumper.write(k)
-dumper.write(str(l))
-print "random sensor:",k
-print "random print: ",l 
-time.sleep(2)
-</code></pre>
-
-<p>```</p>
-
-<p>``` python Receiver.py</p>
-
-<h1>!/usr/bin/python</h1>
-
-<p>import serial
-import json</p>
-
-<p><em>recvport = '/dev/slave'
-recv = serial.Serial(</em>recvport,115200,timeout=1)
-while(1):</p>
-
-<pre><code>data = recv.readline()
-print "received:", data
-</code></pre>
-
-<p>```</p>
-
-<p>Yeah, so as it's pretty obvious, dummy feeds the data and receiver receives it and just dumps it out on STDOUT. Now, that I've got this data, I need to be able to manipulate it to be able to send it to my application server. I think I'll need the involvement of JSON here. Must experiment.</p>
 ]]></content>
   </entry>
   
