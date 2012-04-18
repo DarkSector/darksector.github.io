@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Octopress | Pronoy Chopra's Blog]]></title>
+  <link href="http://DarkSector.github.com/blog/categories/octopress/atom.xml" rel="self"/>
+  <link href="http://DarkSector.github.com/"/>
+  <updated>2012-04-18T11:29:54+05:30</updated>
+  <id>http://DarkSector.github.com/</id>
+  <author>
+    <name><![CDATA[Pronoy Chopra]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Octopress problem]]></title>
+    <link href="http://DarkSector.github.com/blog/octopress-problem/"/>
+    <updated>2012-04-17T00:52:00+05:30</updated>
+    <id>http://DarkSector.github.com/blog/octopress-problem</id>
+    <content type="html"><![CDATA[<p><code>bash CNAME
+$ echo "pronoy.blog.in" &gt;&gt; CNAME
+$ git add CNAME
+$ git commit -m 'added CNAME'
+$ git push origin master
+</code></p>
+
+<p>every time I deploy it removes the CNAME record from the master branch. I wonder how to get it deployed properly.</p>
+
+<p>Really weird, I'll have to keep looking.
+Oh btw, it's my birthday today :)</p>
+
+<p>EDIT: resolved, you need to generate the CNAME in source for it to automatically pick it up and commit it to the master. Smart.</p>
+]]></content>
+  </entry>
+  
+</feed>
