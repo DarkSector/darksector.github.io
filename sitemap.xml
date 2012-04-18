@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
-        <loc>http://DarkSector.github.com/blog/2012/04/17/octopress-problem/</loc>
+        <loc>http://DarkSector.github.com/blog/octopress-problem/</loc>
         <lastmod>2012-04-17T02:45:50+05:30</lastmod>
     </url>
     <url>
         <loc>
-            http://DarkSector.github.com/blog/2012/04/17/prototyping-web-based--data-acquisition-applications/
+            http://DarkSector.github.com/blog/prototyping-web-based--data-acquisition-applications/
         </loc>
         <lastmod>2012-04-17T14:03:52+05:30</lastmod>
     </url>
