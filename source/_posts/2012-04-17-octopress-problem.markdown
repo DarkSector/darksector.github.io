@@ -3,7 +3,7 @@ layout: post
 title: "Octopress problem"
 date: 2012-04-17 00:52
 comments: true
-categories: 
+categories: [Octopress, CNAME, "Custom Domain"]
 ---
 
 ``` bash CNAME
