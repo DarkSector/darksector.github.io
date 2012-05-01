@@ -1,24 +1,96 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Pronoy Chopra's Blog]]></title>
-  <link href="http://DarkSector.github.com/atom.xml" rel="self"/>
-  <link href="http://DarkSector.github.com/"/>
-  <updated>2012-05-01T19:33:57+05:30</updated>
-  <id>http://DarkSector.github.com/</id>
-  <author>
-    <name><![CDATA[Pronoy Chopra]]></name>
-    
-  </author>
-  <generator uri="http://octopress.org/">Octopress</generator>
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>A random graph using d3.js - Pronoy Chopra's Blog</title>
+  <meta name="author" content="Pronoy Chopra">
 
   
-  <entry>
-    <title type="html"><![CDATA[A random graph using d3.js]]></title>
-    <link href="http://DarkSector.github.com/blog/a-random-graph-using-d3-dot-js/"/>
-    <updated>2012-05-01T19:17:00+05:30</updated>
-    <id>http://DarkSector.github.com/blog/a-random-graph-using-d3-dot-js</id>
-    <content type="html"><![CDATA[<p><a href="http://d3js.org">D3.js</a> created by <a href="http://bost.ocks.org/mike/">Mike Bostock</a> is basically a javascript library that allows you to create documents based on data. The name D3 means Data Driven Documents and is a very nifty library to represent data on the web.
+  <meta name="description" content="D3.js created by Mike Bostock is basically a javascript library that allows you to create documents based on data. The name D3 means Data Driven &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://DarkSector.github.com/blog/a-random-graph-using-d3-dot-js">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Pronoy Chopra's Blog" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Pronoy Chopra's Blog</a></h1>
+  
+    <h2>Rants and code</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:DarkSector.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">A Random Graph Using d3.js</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-05-01T19:17:00+05:30" pubdate data-updated="true">May 1<span>st</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p><a href="http://d3js.org">D3.js</a> created by <a href="http://bost.ocks.org/mike/">Mike Bostock</a> is basically a javascript library that allows you to create documents based on data. The name D3 means Data Driven Documents and is a very nifty library to represent data on the web.
 I came across this when I was looking for ways to represent data in real time on a web browser. I am trying to create data acquisition devices that do that. I&#8217;ve also been working on Python for that same thing but I&#8217;ll get to that later.</p>
 
 <p>So I have this random graph on my homepage, it&#8217;s just an edited version of an <a href="http://mbostock.github.com/d3/ex/stack.html">example</a> on the d3 page. Here&#8217;s the code if you want to take a look at it.</p>
@@ -338,203 +410,152 @@ I came across this when I was looking for ways to represent data in real time on
 
 
 <p>I asked a stupid question before, on the mailing list. Here&#8217;s <a href="http://groups.google.com/group/d3-js/browse_thread/thread/891cd4f571b0f6e4#">the link</a> to it. It&#8217;s good if you want to start with d3.js. All the best if you are.</p>
-]]></content>
-  </entry>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
   
-  <entry>
-    <title type="html"><![CDATA[Attempting integration with WTForms with MongoAlchemy]]></title>
-    <link href="http://DarkSector.github.com/blog/attempting-integration-with-wtforms-with-mongoalchemy/"/>
-    <updated>2012-04-18T10:56:00+05:30</updated>
-    <id>http://DarkSector.github.com/blog/attempting-integration-with-wtforms-with-mongoalchemy</id>
-    <content type="html"><![CDATA[<p>So the forms.py looks something like this.</p>
 
-<figure class='code'><figcaption><span>forms.py </span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">with_statement</span>
-</span><span class='line'>
-</span><span class='line'><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">redirect</span><span class="p">,</span> <span class="n">url_for</span><span class="p">,</span> <span class="n">abort</span><span class="p">,</span> \
-</span><span class='line'>     <span class="n">render_template</span><span class="p">,</span> <span class="n">flash</span>
-</span><span class='line'><span class="kn">from</span> <span class="nn">flaskext.wtf</span> <span class="kn">import</span> <span class="n">Form</span><span class="p">,</span> <span class="n">TextField</span><span class="p">,</span> <span class="n">TextAreaField</span><span class="p">,</span> \
-</span><span class='line'>   <span class="n">PasswordField</span><span class="p">,</span> <span class="n">SubmitField</span><span class="p">,</span> <span class="n">Required</span><span class="p">,</span> <span class="n">SelectField</span><span class="p">,</span> <span class="n">ValidationError</span><span class="p">,</span> \
-</span><span class='line'>   <span class="n">RadioField</span>
-</span><span class='line'>      
-</span><span class='line'><span class="kn">from</span> <span class="nn">foo</span> <span class="kn">import</span> <span class="n">app</span>
-</span><span class='line'><span class="kn">from</span> <span class="nn">foo</span> <span class="kn">import</span> <span class="n">db</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">class</span> <span class="nc">BuilderForm</span><span class="p">(</span><span class="n">Form</span><span class="p">):</span>
-</span><span class='line'>  <span class="sd">&quot;&quot;&quot;Function used to create custom fields&quot;&quot;&quot;</span>
-</span><span class='line'>  <span class="n">field_name</span> <span class="o">=</span> <span class="n">TextField</span><span class="p">()</span>
-</span><span class='line'>  <span class="n">field_type</span> <span class="o">=</span> <span class="n">SelectField</span><span class="p">(</span><span class="s">u&#39;Type of Field&#39;</span><span class="p">,</span><span class="n">choices</span><span class="o">=</span><span class="p">[(</span><span class="s">&#39;&#39;</span><span class="p">,</span><span class="s">&#39;&#39;</span><span class="p">)])</span>
-</span><span class='line'>  <span class="n">submit</span> <span class="o">=</span> <span class="n">SubmitField</span><span class="p">(</span><span class="s">&#39;Submit Information&#39;</span><span class="p">)</span>
-</span><span class='line'>  
-</span><span class='line'><span class="k">class</span> <span class="nc">Register</span><span class="p">(</span><span class="n">Form</span><span class="p">):</span>
-</span><span class='line'>  <span class="sd">&quot;&quot;&quot;Form for registeration of professional, org or moderator&quot;&quot;&quot;</span>        
-</span><span class='line'>  <span class="n">usertype</span> <span class="o">=</span> <span class="n">SelectField</span><span class="p">(</span><span class="s">u&#39;Type of user&#39;</span><span class="p">,</span> <span class="n">choices</span><span class="o">=</span><span class="p">[(</span><span class="s">&#39;org&#39;</span><span class="p">,</span><span class="s">&#39;Organization&#39;</span><span class="p">),(</span><span class="s">&#39;pro&#39;</span><span class="p">,</span><span class="s">&#39;Professional&#39;</span><span class="p">),(</span><span class="s">&#39;mod&#39;</span><span class="p">,</span><span class="s">&#39;Moderator&#39;</span><span class="p">)])</span>
-</span><span class='line'>  <span class="n">name</span> <span class="o">=</span> <span class="n">TextField</span><span class="p">(</span><span class="s">&#39;Organization/Professional Name&#39;</span><span class="p">)</span>
-</span><span class='line'>  <span class="n">email</span> <span class="o">=</span> <span class="n">TextField</span><span class="p">(</span><span class="s">&#39;Email addresss *&#39;</span><span class="p">)</span>
-</span><span class='line'>  <span class="n">phone</span> <span class="o">=</span> <span class="n">TextField</span><span class="p">(</span><span class="s">&#39;Phone Number *&#39;</span><span class="p">)</span>
-</span><span class='line'>  <span class="n">register</span> <span class="o">=</span> <span class="n">SubmitField</span><span class="p">(</span><span class="s">&#39;Submit user information&#39;</span><span class="p">)</span>
-</span><span class='line'>  
-</span><span class='line'><span class="k">class</span> <span class="nc">LoginForm</span><span class="p">(</span><span class="n">Form</span><span class="p">):</span>
-</span><span class='line'>  <span class="sd">&quot;&quot;&quot;Form for logging in for Professionals and Orgs&quot;&quot;&quot;</span>
-</span><span class='line'>      
-</span><span class='line'>  <span class="n">email</span> <span class="o">=</span> <span class="n">TextField</span><span class="p">(</span><span class="s">&#39;Your email which you used to register&#39;</span><span class="p">)</span>
-</span><span class='line'>  <span class="n">password</span> <span class="o">=</span> <span class="n">PasswordField</span><span class="p">(</span><span class="s">&#39;Your passsword&#39;</span><span class="p">)</span>
-</span><span class='line'>  <span class="n">usertype</span> <span class="o">=</span> <span class="n">SelectField</span><span class="p">(</span><span class="s">u&#39;Log me in as&#39;</span><span class="p">,</span> <span class="n">choices</span><span class="o">=</span><span class="p">[(</span><span class="s">&#39;org&#39;</span><span class="p">,</span><span class="s">&#39;Organization&#39;</span><span class="p">),(</span><span class="s">&#39;pro&#39;</span><span class="p">,</span><span class="s">&#39;Professional&#39;</span><span class="p">),(</span><span class="s">&#39;mod&#39;</span><span class="p">,</span><span class="s">&#39;Moderator&#39;</span><span class="p">)])</span>
-</span><span class='line'>  <span class="n">login</span> <span class="o">=</span> <span class="n">SubmitField</span><span class="p">(</span><span class="s">&#39;Login&#39;</span><span class="p">)</span>
-</span><span class='line'>  
-</span><span class='line'><span class="k">class</span> <span class="nc">StarterForm</span><span class="p">(</span><span class="n">Form</span><span class="p">):</span>
-</span><span class='line'>  <span class="sd">&quot;&quot;&quot;Form for starting off the profile display process&quot;&quot;&quot;</span>
-</span><span class='line'>  <span class="n">region</span> <span class="o">=</span> <span class="n">SelectField</span><span class="p">(</span><span class="s">u&#39;Select you state&#39;</span><span class="p">,</span> <span class="n">choices</span><span class="o">=</span><span class="p">[])</span>
-</span><span class='line'>  <span class="n">pincode</span> <span class="o">=</span> <span class="n">TextField</span><span class="p">(</span><span class="s">&quot;Your pincode&quot;</span><span class="p">)</span>
-</span><span class='line'>  <span class="n">specific</span> <span class="o">=</span> <span class="n">TextField</span><span class="p">(</span><span class="s">&quot;Town or Village&quot;</span><span class="p">)</span>
-</span><span class='line'>  <span class="n">submit</span> <span class="o">=</span> <span class="n">SubmitField</span><span class="p">(</span><span class="s">&#39;Submit&#39;</span><span class="p">)</span>
-</span></code></pre></td></tr></table></div></figure>
+<span class="byline author vcard">Posted by <span class="fn">Pronoy Chopra</span></span>
+
+      
 
 
-<p>Notice how the region field in StarterForm would require database driven choices? Yeah I need to figure out how to do that in my views function. It&#8217;s important to render the views otherwise it might break the whole thing by circular imports.</p>
 
-<p>Also since Forms are classes it would be difficult to pass the arguments when calling the form in views. Okay let&#8217;s attempt that.</p>
-]]></content>
-  </entry>
+
+
+
+
+
   
-  <entry>
-    <title type="html"><![CDATA[Prototyping web based data acquisition applications]]></title>
-    <link href="http://DarkSector.github.com/blog/prototyping-web-based--data-acquisition-applications/"/>
-    <updated>2012-04-17T03:15:00+05:30</updated>
-    <id>http://DarkSector.github.com/blog/prototyping-web-based&#8211;data-acquisition-applications</id>
-    <content type="html"><![CDATA[<p>In order to build an application that processes or even simply displays data being acquired by say the serial port, it is not important to actually have the device connected.</p>
-
-<p>We can build virtual serial pairs and have our backend transmit and acquire dummy data and then test the processing logic. This is one of the reasons why I love Python. It just doesn&#8217;t get in your way and gets you all the stuff you need to get started ASAP.</p>
-
-<p>So I&#8217;ve resorted to <a href="http://pyserial.sourceforge.net/">PySerial</a> and this application called <a href="http://code.google.com/p/macosxvirtualserialport/">Virtual Serial Port</a>. The latter creates a pair in the /dev and the former is used to put in the data from one end and retrieve it at the other. An important question one could ask, why not just generate dummy data than getting it passed through a virtual serial pipe? Answer is that it&#8217;s the closest way to the real thing, might as well get it done.</p>
-
-<p>So, after having created serial ports, now to simply create two scripts that pour and retrieve data.</p>
-
-<figure class='code'><figcaption><span>Dummy-feeder.py</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="c">#!/usr/bin/python</span>
-</span><span class='line'>
-</span><span class='line'><span class="kn">import</span> <span class="nn">serial</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">random</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">time</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">_portname</span> <span class="o">=</span> <span class="s">&#39;/dev/master&#39;</span>
-</span><span class='line'><span class="n">dumper</span> <span class="o">=</span> <span class="n">serial</span><span class="o">.</span><span class="n">Serial</span><span class="p">(</span><span class="n">_portname</span><span class="p">,</span><span class="mi">115200</span><span class="p">,</span><span class="n">timeout</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</span><span class='line'><span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">):</span>
-</span><span class='line'>  <span class="n">l</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1023</span><span class="p">)</span>
-</span><span class='line'>  <span class="n">k</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="s">&#39;abcdef&#39;</span><span class="p">)</span>
-</span><span class='line'>  <span class="n">dumper</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
-</span><span class='line'>  <span class="n">dumper</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">l</span><span class="p">))</span>
-</span><span class='line'>  <span class="k">print</span> <span class="s">&quot;random sensor:&quot;</span><span class="p">,</span><span class="n">k</span>
-</span><span class='line'>  <span class="k">print</span> <span class="s">&quot;random print: &quot;</span><span class="p">,</span><span class="n">l</span>
-</span><span class='line'>  <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</span></code></pre></td></tr></table></div></figure>
 
 
+<time datetime="2012-05-01T19:17:00+05:30" pubdate data-updated="true">May 1<span>st</span>, 2012</time>
+      
 
-
-<figure class='code'><figcaption><span>Receiver.py</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="c">#!/usr/bin/python</span>
-</span><span class='line'>
-</span><span class='line'><span class="kn">import</span> <span class="nn">serial</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">json</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">_recvport</span> <span class="o">=</span> <span class="s">&#39;/dev/slave&#39;</span>
-</span><span class='line'><span class="n">recv</span> <span class="o">=</span> <span class="n">serial</span><span class="o">.</span><span class="n">Serial</span><span class="p">(</span><span class="n">_recvport</span><span class="p">,</span><span class="mi">115200</span><span class="p">,</span><span class="n">timeout</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</span><span class='line'><span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">):</span>
-</span><span class='line'>  <span class="n">data</span> <span class="o">=</span> <span class="n">recv</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
-</span><span class='line'>  <span class="k">print</span> <span class="s">&quot;received:&quot;</span><span class="p">,</span> <span class="n">data</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Yeah, so as it&#8217;s pretty obvious, dummy feeds the data and receiver receives it and just dumps it out on STDOUT. Now, that I&#8217;ve got this data, I need to be able to manipulate it to be able to send it to my application server. I think I&#8217;ll need the involvement of JSON here. Must experiment.</p>
-]]></content>
-  </entry>
+<span class="categories">
   
-  <entry>
-    <title type="html"><![CDATA[Octopress problem]]></title>
-    <link href="http://DarkSector.github.com/blog/octopress-problem/"/>
-    <updated>2012-04-17T00:52:00+05:30</updated>
-    <id>http://DarkSector.github.com/blog/octopress-problem</id>
-    <content type="html"><![CDATA[<figure class='code'><figcaption><span>CNAME</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span><span class="nb">echo</span> <span class="s2">&quot;pronoy.blog.in&quot;</span> &gt;&gt; CNAME
-</span><span class='line'><span class="nv">$ </span>git add CNAME
-</span><span class='line'><span class="nv">$ </span>git commit -m <span class="s1">&#39;added CNAME&#39;</span>
-</span><span class='line'><span class="nv">$ </span>git push origin master
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Every time I deploy it removes the CNAME record from the master branch. I wonder how to get it deployed properly.</p>
-
-<p>Really weird, I&#8217;ll have to keep looking.
-Oh btw, it&#8217;s my birthday today :)</p>
-
-<p>EDIT: resolved, you need to generate the CNAME in source for it to automatically pick it up and commit it to the master. Smart.</p>
-]]></content>
-  </entry>
+    <a class='category' href='/blog/categories/javascript-d3-js/'>JavaScript,d3.js</a>
   
-</feed>
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://DarkSector.github.com/blog/a-random-graph-using-d3-dot-js/" data-via="" data-counturl="http://DarkSector.github.com/blog/a-random-graph-using-d3-dot-js/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/attempting-integration-with-wtforms-with-mongoalchemy/" title="Previous Post: Attempting integration with WTForms with MongoAlchemy">&laquo; Attempting integration with WTForms with MongoAlchemy</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/a-random-graph-using-d3-dot-js/">A random graph using d3.js</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/attempting-integration-with-wtforms-with-mongoalchemy/">Attempting integration with WTForms with MongoAlchemy</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/prototyping-web-based--data-acquisition-applications/">Prototyping web based data acquisition applications</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/octopress-problem/">Octopress problem</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/DarkSector">@DarkSector</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'DarkSector',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Pronoy Chopra -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
