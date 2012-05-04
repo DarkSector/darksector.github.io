@@ -150,6 +150,6 @@ end if
 
 I made this script trigger with the combination ^+ ⌘+] so that it may switch between developer mode and normal mode. I also updated the script with Growl Notification which I find is pretty cool &lt;/proud&gt;
 
-One successful weekend I'd say. I also might develop further on this application and hence the name Seed. Don't ask my what it stands for, it's just a name.
+One successful weekend I'd say. I also might develop further on this application and hence the name Seed. Don't ask me what it stands for, it's just a name.
 
 You can find the code [here](https://github.com/DarkSector/AppleScripts) on Github.
