@@ -6,7 +6,7 @@ comments: true
 categories: ['Mac OS X Lion', 'Terminal', 'AppleScript', 'Finder']
 ---
 
-My Macbook Air has all its function keys multiplexed with other special functions like Sound up, Sound down, Mute, etc. Now, I really need to pop up the terminal again and again when I am working and even third party applications like [TotalTerminal](http://totalterminal.binaryage.com/) still use a combo. Default being CTRL+~. This is frustrating for someone who's used Guake on Linux. F12, I miss you so much.
+My Macbook Air has all its function keys multiplexed with other special functions like Sound up, Sound down, Mute, etc. Now, I really need to pop up the terminal again and again when I am working and even third party applications like [TotalTerminal](http://totalterminal.binaryage.com/) still use a combo. Default being <span class="label label-info">ctrl+~</span>. This is frustrating for someone who's used Guake on Linux. <span class="badge badge-info">F12</span>, I miss you so much.
 
 So what do we do. We hack _zey keyboard_. Well not really hack it, just have two modes to work. Because I love the sound up and sound down keys along with iTunes trigger. Makes life easier. I am not going to explain the whole code because it's pretty self explanatory, comments should help. Should take just one day of your weekend if you're new.
 
@@ -44,9 +44,9 @@ end if
 
 The syntax is very easy. So whenever the script is run, if the terminal is running it'll bring to the front and when it is ran again, it'll hide it. If it's not running, it'll start it.
 
-But the question is how to start it in the first place? Answer is pretty simple [FastScripts](http://www.red-sweater.com/fastscripts/). You can run 10 scripts with the free version. I simply put the script in a new folder name it foo or whatever and in the preferences assign the key F12 to it. Now in order to get to key F12 you'll have to press __Fn__ key with it.
+But the question is how to start it in the first place? Answer is pretty simple [FastScripts](http://www.red-sweater.com/fastscripts/). You can run 10 scripts with the free version. I simply put the script in a new folder name it foo or whatever and in the preferences assign the key <span class="badge badge-info">__F12__</span> to it.
 
-There's another problem, __F12__ also gets you to Dashboard. So go to System Preferences and remove that feature.
+There's another problem, <span class="badge badge-info">__F12__</span> also gets you to Dashboard. So go to System Preferences and remove that feature.
  
 {% img center http://cl.ly/1s0I310w381E0r3Y3m1d/Screen%20Shot%202012-05-04%20at%205.25.09%20PM.png %}
 
@@ -148,7 +148,7 @@ if application "System Preferences" is running then
 end if
 ```
 
-I made this script trigger with the combination ^+ ⌘+] so that it may switch between developer mode and normal mode. I also updated the script with Growl Notification which I find is pretty cool &lt;/proud&gt;
+I made this script trigger with the combination <span class="label label-info">ctrl+ ⌘+]</span> so that it may switch between developer mode and normal mode. I also updated the script with Growl Notification which I find is pretty cool &lt;/proud&gt;
 
 One successful weekend I'd say. I also might develop further on this application and hence the name Seed. Don't ask me what it stands for, it's just a name.
 
