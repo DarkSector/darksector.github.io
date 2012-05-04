@@ -4,7 +4,7 @@
   <title><![CDATA[Pronoy Chopra's Blog]]></title>
   <link href="http://DarkSector.github.com/atom.xml" rel="self"/>
   <link href="http://DarkSector.github.com/"/>
-  <updated>2012-05-04T18:08:20+05:30</updated>
+  <updated>2012-05-04T20:09:37+05:30</updated>
   <id>http://DarkSector.github.com/</id>
   <author>
     <name><![CDATA[Pronoy Chopra]]></name>
@@ -18,7 +18,7 @@
     <link href="http://DarkSector.github.com/blog/single-trigger-terminal-hack-mac-os-x-lion/"/>
     <updated>2012-05-04T16:36:00+05:30</updated>
     <id>http://DarkSector.github.com/blog/single-trigger-terminal-hack-mac-os-x-lion</id>
-    <content type="html"><![CDATA[<p>My Macbook Air has all its function keys multiplexed with other special functions like Sound up, Sound down, Mute, etc. Now, I really need to pop up the terminal again and again when I am working and even third party applications like <a href="http://totalterminal.binaryage.com/">TotalTerminal</a> still use a combo. Default being CTRL+~. This is frustrating for someone who&#8217;s used Guake on Linux. F12, I miss you so much.</p>
+    <content type="html"><![CDATA[<p>My Macbook Air has all its function keys multiplexed with other special functions like Sound up, Sound down, Mute, etc. Now, I really need to pop up the terminal again and again when I am working and even third party applications like <a href="http://totalterminal.binaryage.com/">TotalTerminal</a> still use a combo. Default being <span class="label label-info">ctrl+~</span>. This is frustrating for someone who&#8217;s used Guake on Linux. <span class="badge badge-info">F12</span>, I miss you so much.</p>
 
 <p>So what do we do. We hack <em>zey keyboard</em>. Well not really hack it, just have two modes to work. Because I love the sound up and sound down keys along with iTunes trigger. Makes life easier. I am not going to explain the whole code because it&#8217;s pretty self explanatory, comments should help. Should take just one day of your weekend if you&#8217;re new.</p>
 
@@ -85,9 +85,9 @@
 
 <p>The syntax is very easy. So whenever the script is run, if the terminal is running it&#8217;ll bring to the front and when it is ran again, it&#8217;ll hide it. If it&#8217;s not running, it&#8217;ll start it.</p>
 
-<p>But the question is how to start it in the first place? Answer is pretty simple <a href="http://www.red-sweater.com/fastscripts/">FastScripts</a>. You can run 10 scripts with the free version. I simply put the script in a new folder name it foo or whatever and in the preferences assign the key F12 to it. Now in order to get to key F12 you&#8217;ll have to press <strong>Fn</strong> key with it.</p>
+<p>But the question is how to start it in the first place? Answer is pretty simple <a href="http://www.red-sweater.com/fastscripts/">FastScripts</a>. You can run 10 scripts with the free version. I simply put the script in a new folder name it foo or whatever and in the preferences assign the key <span class="badge badge-info"><strong>F12</strong></span> to it.</p>
 
-<p>There&#8217;s another problem, <strong>F12</strong> also gets you to Dashboard. So go to System Preferences and remove that feature.</p>
+<p>There&#8217;s another problem, <span class="badge badge-info"><strong>F12</strong></span> also gets you to Dashboard. So go to System Preferences and remove that feature.</p>
 
 <p><img class="center" src="http://cl.ly/1s0I310w381E0r3Y3m1d/Screen%20Shot%202012-05-04%20at%205.25.09%20PM.png"></p>
 
@@ -279,7 +279,7 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>I made this script trigger with the combination ^+ ⌘+] so that it may switch between developer mode and normal mode. I also updated the script with Growl Notification which I find is pretty cool &lt;/proud&gt;</p>
+<p>I made this script trigger with the combination <span class="label label-info">ctrl+ ⌘+]</span> so that it may switch between developer mode and normal mode. I also updated the script with Growl Notification which I find is pretty cool &lt;/proud&gt;</p>
 
 <p>One successful weekend I&#8217;d say. I also might develop further on this application and hence the name Seed. Don&#8217;t ask me what it stands for, it&#8217;s just a name.</p>
 
