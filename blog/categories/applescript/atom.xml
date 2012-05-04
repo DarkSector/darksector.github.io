@@ -4,7 +4,7 @@
   <title><![CDATA[Category: AppleScript | Pronoy Chopra's Blog]]></title>
   <link href="http://DarkSector.github.com/blog/categories/applescript/atom.xml" rel="self"/>
   <link href="http://DarkSector.github.com/"/>
-  <updated>2012-05-04T17:39:49+05:30</updated>
+  <updated>2012-05-04T17:48:47+05:30</updated>
   <id>http://DarkSector.github.com/</id>
   <author>
     <name><![CDATA[Pronoy Chopra]]></name>
@@ -180,6 +180,8 @@ if application "System Preferences" is running then</p>
 <p>I made this script trigger with the combination ^+ ⌘+] so that it may switch between developer mode and normal mode. I also updated the script with Growl Notification which I find is pretty cool &lt;/proud&gt;</p>
 
 <p>One successful weekend I'd say. I also might develop further on this application and hence the name Seed. Don't ask my what it stands for, it's just a name.</p>
+
+<p>You can find the code <a href="https://github.com/DarkSector/AppleScripts">here</a> on Github.</p>
 ]]></content>
   </entry>
   
