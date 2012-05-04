@@ -80,7 +80,7 @@ It's similar and therefore easier.
 ##PyMongo Usage
 
 ```bash  start the mongo daemon on any port and application directory to store database
-$ mongod --port 45000 --dbpath $PATHTOAPPLICATION DIRECTORY
+$ mongod --port 45000 --dbpath $PATHTOAPPLICATIONDIRECTORY
 ```
 
 ```python 
