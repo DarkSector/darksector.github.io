@@ -4,7 +4,7 @@
   <title><![CDATA[Pronoy Chopra's Blog]]></title>
   <link href="http://DarkSector.github.com/atom.xml" rel="self"/>
   <link href="http://DarkSector.github.com/"/>
-  <updated>2012-05-04T17:48:47+05:30</updated>
+  <updated>2012-05-04T17:55:17+05:30</updated>
   <id>http://DarkSector.github.com/</id>
   <author>
     <name><![CDATA[Pronoy Chopra]]></name>
@@ -387,7 +387,7 @@
 <h2>PyMongo Usage</h2>
 
 <figure class='code'><figcaption><span>start the mongo daemon on any port and application directory to store database</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>mongod --port 45000 --dbpath <span class="nv">$PATHTOAPPLICATION</span> DIRECTORY
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>mongod --port 45000 --dbpath <span class="nv">$PATHTOAPPLICATIONDIRECTORY</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
