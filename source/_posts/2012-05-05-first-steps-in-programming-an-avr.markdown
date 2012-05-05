@@ -4,7 +4,7 @@ title: "First steps in programming an AVR"
 date: 2012-05-05 22:20
 comments: true
 categories: ['AVR','Microcontrollers', 'Embedded Systems', 'Hardware', 'Electronics']
-publish: false
+published: false
 ---
 
 So, this has been due for a long time now. First programs on how to program the AVR. If you don't know what that is, you need to google ATMEL AVR. If you know what that is, great!
