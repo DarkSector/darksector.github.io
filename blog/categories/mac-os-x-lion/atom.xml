@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Mac OS X Lion | Pronoy Chopra's Blog]]></title>
   <link href="http://DarkSector.github.com/blog/categories/mac-os-x-lion/atom.xml" rel="self"/>
   <link href="http://DarkSector.github.com/"/>
-  <updated>2012-05-04T20:09:37+05:30</updated>
+  <updated>2012-05-05T23:02:33+05:30</updated>
   <id>http://DarkSector.github.com/</id>
   <author>
     <name><![CDATA[Pronoy Chopra]]></name>
@@ -12,6 +12,21 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[lsusb equivalent on Mac OS X]]></title>
+    <link href="http://DarkSector.github.com/blog/lsusb-equivalent-on-mac-os-x/"/>
+    <updated>2012-05-05T22:58:00+05:30</updated>
+    <id>http://DarkSector.github.com/blog/lsusb-equivalent-on-mac-os-x</id>
+    <content type="html"><![CDATA[<p>Strangely there is no lsusb on Mac OS X. So I searched and found this command</p>
+
+<p><code>bash system_profiler
+$ system_profiler SPUSBDataType
+</code></p>
+
+<p>Check out the man page for system_profiler, it's got loads of options.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Single Trigger Terminal Hack Mac OS X Lion]]></title>

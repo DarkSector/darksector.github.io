@@ -9,7 +9,8 @@
   <meta name="author" content="Pronoy Chopra">
 
   
-  <meta name="description" content="My Macbook Air has all its function keys multiplexed with other special functions like Sound up, Sound down, Mute, etc. Now, I really need to pop up &hellip;">
+  <meta name="description" content="Strangely there is no lsusb on Mac OS X. So I searched and found this command system_profiler1
+$ system_profiler SPUSBDataType Check out the man page &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -64,6 +65,180 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/lsusb-equivalent-on-mac-os-x/">Lsusb Equivalent on Mac OS X</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-05-05T22:58:00+05:30" pubdate data-updated="true">May 5<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Strangely there is no lsusb on Mac OS X. So I searched and found this command</p>
+
+<figure class='code'><figcaption><span>system_profiler</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>system_profiler SPUSBDataType
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Check out the man page for system_profiler, it&#8217;s got loads of options.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/first-steps-in-programming-an-avr/">First Steps in Programming an AVR</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-05-05T22:20:00+05:30" pubdate data-updated="true">May 5<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>So, this has been due for a long time now. First programs on how to program the AVR. If you don&#8217;t know what that is, you need to google ATMEL AVR. If you know what that is, great!</p>
+
+<p>I am going to be using an ATMega32 with an external crystal with 16MHz clock. I have a MKII programmer that allows me to use AVR Studio with it. It&#8217;s the first use of Windows in programming I&#8217;ve found, ever. AVR Studio, rest everything is shite.</p>
+
+<p>I am currently on Mac OS X so I need to use AVR-GCC for this which can be obtained as a crosspack from Objective Development or Ob-dev as we know them. Really cool people. I&#8217;ll be later using AVRDUDE to actually burn the chip. I&#8217;ll share the circuit later.</p>
+
+<p>First, let&#8217;s code.</p>
+
+<figure class='code'><figcaption><span>blinky.c</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+</pre></td><td class='code'><pre><code class='objc'><span class='line'><span class="cp">#define F_CPU 16000000UL</span>
+</span><span class='line'><span class="cp">//defines the clock being used, for calculating delay</span>
+</span><span class='line'>
+</span><span class='line'><span class="cp">#include &lt;inttypes.h&gt;</span>
+</span><span class='line'><span class="cp">#include &lt;avr/io.h&gt;</span>
+</span><span class='line'><span class="cp">#include &lt;util/delay.h&gt;</span>
+</span><span class='line'><span class="c1">//this is the delay function included here</span>
+</span><span class='line'>
+</span><span class='line'><span class="kt">int</span> <span class="n">main</span><span class="p">(){</span>
+</span><span class='line'>  
+</span><span class='line'>  <span class="n">DDRC</span> <span class="o">|=</span> <span class="mh">0xFF</span><span class="p">;</span>
+</span><span class='line'>  <span class="c1">//set the data direction registers of PORTC as output, all of them.</span>
+</span><span class='line'>  
+</span><span class='line'>  <span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">){</span>
+</span><span class='line'>      
+</span><span class='line'>      <span class="n">PORTC</span> <span class="o">|=</span> <span class="mh">0xFF</span><span class="p">;</span>
+</span><span class='line'>      <span class="c1">//write the value 255 or FF in hex so that all LEDs may light up</span>
+</span><span class='line'>      <span class="c1">//or go out as per your LED configuration</span>
+</span><span class='line'>      
+</span><span class='line'>      <span class="n">_delay_ms</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+</span><span class='line'>      <span class="c1">//this is for providing delay of 100 milliseconds</span>
+</span><span class='line'>      
+</span><span class='line'>      <span class="n">PORTC</span> <span class="o">=</span> <span class="o">~</span><span class="n">PORTC</span><span class="p">;</span>
+</span><span class='line'>      <span class="c1">//just negate the last value on PORTC, so it toggles the values and</span>
+</span><span class='line'>      <span class="c1">//hence the LEDs</span>
+</span><span class='line'>      
+</span><span class='line'>      <span class="n">_delay_ms</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+</span><span class='line'>      <span class="c1">//This delay is necessary, you&#39;ll have to run the program to understand</span>
+</span><span class='line'>      <span class="c1">//why</span>
+</span><span class='line'>      
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>  <span class="c1">//return 0 because main is int type</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>So, this is the basic AVR C program. Let&#8217;s compile it. But compiling is not enough, we want a .hex file that we&#8217;ll eventually burn on the chip&#8217;s Flash ROM. But luckily we can produce that from the .elf we&#8217;ll create. This is how it&#8217;s done.</p>
+
+<figure class='code'><figcaption><span>avr-gcc commands to compile blinky.c</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>avr-gcc -g -Os -mmcu<span class="o">=</span>atmega32 -c blinky.c
+</span><span class='line'><span class="nv">$ </span>avr-gcc -g -mmcu<span class="o">=</span>atmega32 -o blinky.c blinky.o
+</span><span class='line'><span class="nv">$ </span>avr-objcopy -j .text -j .data -O ihex blinky.elf blinky.hex
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>So now we have the blinky.hex, let&#8217;s burn it to the chip. I&#8217;ll be using AVRDUDE as I mentioned before. Here&#8217;s the one command that solves our problem</p>
+
+<figure class='code'><figcaption><span>avrdude</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>avrdude -F -c avrispmkII -p m32 -P /dev/ttyUSB0 -b 19200 -U flash:w:<span class="nv">$filename</span><span class="s2">&quot;.hex&quot;</span> -e -vv
+</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -1159,6 +1334,14 @@ Oh btw, it&#8217;s my birthday today :)</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/lsusb-equivalent-on-mac-os-x/">lsusb equivalent on Mac OS X</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/first-steps-in-programming-an-avr/">First steps in programming an AVR</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/single-trigger-terminal-hack-mac-os-x-lion/">Single Trigger Terminal Hack Mac OS X Lion</a>
       </li>
     
@@ -1168,14 +1351,6 @@ Oh btw, it&#8217;s my birthday today :)</p>
     
       <li class="post">
         <a href="/blog/a-random-graph-using-d3-dot-js/">A random graph using d3.js</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/attempting-integration-with-wtforms-with-mongoalchemy/">Attempting integration with WTForms with MongoAlchemy</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/prototyping-web-based--data-acquisition-applications/">Prototyping web based data acquisition applications</a>
       </li>
     
   </ul>
