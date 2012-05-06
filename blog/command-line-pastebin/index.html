@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Category: MongoDB - Pronoy Chopra's Blog</title>
+  <title>Command line pastebin - Pronoy Chopra's Blog</title>
   <meta name="author" content="Pronoy Chopra">
 
   
-  <meta name="description" content="Category: MongoDB">
+  <meta name="description" content="Found out about a command line pastebin. I really like the example. it&#8217;s simple for instance, you&#8217;d like the output of /foo/bar directly &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://DarkSector.github.comblog/categories/mongodb">
+  <link rel="canonical" href="http://DarkSector.github.com/blog/command-line-pastebin">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -63,35 +63,105 @@
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Category: MongoDB</h1>
+    
+      <h1 class="entry-title">Command Line Pastebin</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-05-06T22:45:00+05:30" pubdate data-updated="true">May 6<span>th</span>, 2012</time>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives" class="category">
 
 
+<div class="entry-content"><p>Found out about a command line pastebin. I really like the example. it&#8217;s simple for instance, you&#8217;d like the output of /foo/bar directly on pastebin, you do this.</p>
 
-  
-  <h2>2012</h2>
-
-<article>
-  
-<h1><a href="/blog/migrating-from-mongoalchemy/">Migrating from MongoAlchemy</a></h1>
-<time datetime="2012-05-02T22:59:00+05:30" pubdate><span class='month'>May</span> <span class='day'>02</span> <span class='year'>2012</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/flask/'>Flask</a>, <a class='category' href='/blog/categories/flask-mongoalchemy/'>Flask-MongoAlchemy</a>, <a class='category' href='/blog/categories/mongodb/'>MongoDB</a>, <a class='category' href='/blog/categories/pymongo/'>PyMongo</a>, <a class='category' href='/blog/categories/python/'>Python</a></span>
-</footer>
+<figure class='code'><figcaption><span>Sprunge</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>cat /foo/bar | curl -F <span class="s1">&#39;sprunge=&lt;-&#39;</span> http://sprunge.us
+</span><span class='line'>  http://sprunge.us/Zi1Lk
+</span></code></pre></td></tr></table></div></figure>
 
 
-</article>
+<p>Yep, <a href="http://sprunge.us/">Sprunge.us</a>
+It&#8217;s source resides on <a href="http://github.com/rupa/sprunge">Github</a></p>
 
+<p>Of course writing the whole syntax will loose it&#8217;s novelty, so I advise you to use an alias for the same.</p>
+
+<figure class='code'><figcaption><span>pastebin</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span><span class="nb">echo</span> <span class="s2">&quot;alias = \&quot;curl -F &#39;sprunge=&lt;-&#39; http://sprunge.us\&quot;&quot;</span> &gt;&gt; ~/.bash_profile
+</span><span class='line'><span class="nv">$ </span><span class="nb">source</span> ~/.bash_profile
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Yep, that will add an alias to your bash_profile and then source it to use the commands immediately</p>
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">Pronoy Chopra</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-05-06T22:45:00+05:30" pubdate data-updated="true">May 6<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/command-line/'>Command line</a>, <a class='category' href='/blog/categories/pastebin/'>Pastebin</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://DarkSector.github.com/blog/command-line-pastebin/" data-via="" data-counturl="http://DarkSector.github.com/blog/command-line-pastebin/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/lsusb-equivalent-on-mac-os-x/" title="Previous Post: lsusb equivalent on Mac OS X">&laquo; lsusb equivalent on Mac OS X</a>
+      
+      
+    </p>
+  </footer>
 </article>
 
 </div>

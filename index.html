@@ -9,8 +9,7 @@
   <meta name="author" content="Pronoy Chopra">
 
   
-  <meta name="description" content="Strangely there is no lsusb on Mac OS X. So I searched and found this command system_profiler1
-$ system_profiler SPUSBDataType Check out the man page &hellip;">
+  <meta name="description" content="Found out about a command line pastebin. I really like the example. it&#8217;s simple for instance, you&#8217;d like the output of /foo/bar directly &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +64,63 @@ $ system_profiler SPUSBDataType Check out the man page &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/command-line-pastebin/">Command Line Pastebin</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-05-06T22:45:00+05:30" pubdate data-updated="true">May 6<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Found out about a command line pastebin. I really like the example. it&#8217;s simple for instance, you&#8217;d like the output of /foo/bar directly on pastebin, you do this.</p>
+
+<figure class='code'><figcaption><span>Sprunge</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>cat /foo/bar | curl -F <span class="s1">&#39;sprunge=&lt;-&#39;</span> http://sprunge.us
+</span><span class='line'>  http://sprunge.us/Zi1Lk
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Yep, <a href="http://sprunge.us/">Sprunge.us</a>
+It&#8217;s source resides on <a href="http://github.com/rupa/sprunge">Github</a></p>
+
+<p>Of course writing the whole syntax will loose it&#8217;s novelty, so I advise you to use an alias for the same.</p>
+
+<figure class='code'><figcaption><span>pastebin</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span><span class="nb">echo</span> <span class="s2">&quot;alias = \&quot;curl -F &#39;sprunge=&lt;-&#39; http://sprunge.us\&quot;&quot;</span> &gt;&gt; ~/.bash_profile
+</span><span class='line'><span class="nv">$ </span><span class="nb">source</span> ~/.bash_profile
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Yep, that will add an alias to your bash_profile and then source it to use the commands immediately</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -1203,6 +1259,10 @@ Oh btw, it&#8217;s my birthday today :)</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/command-line-pastebin/">Command line pastebin</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/lsusb-equivalent-on-mac-os-x/">lsusb equivalent on Mac OS X</a>
       </li>
     
@@ -1216,10 +1276,6 @@ Oh btw, it&#8217;s my birthday today :)</p>
     
       <li class="post">
         <a href="/blog/a-random-graph-using-d3-dot-js/">A random graph using d3.js</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/attempting-integration-with-wtforms-with-mongoalchemy/">Attempting integration with WTForms with MongoAlchemy</a>
       </li>
     
   </ul>

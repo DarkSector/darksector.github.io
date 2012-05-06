@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Command line | Pronoy Chopra's Blog]]></title>
+  <link href="http://DarkSector.github.com/blog/categories/command-line/atom.xml" rel="self"/>
+  <link href="http://DarkSector.github.com/"/>
+  <updated>2012-05-06T23:42:58+05:30</updated>
+  <id>http://DarkSector.github.com/</id>
+  <author>
+    <name><![CDATA[Pronoy Chopra]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Command line pastebin]]></title>
+    <link href="http://DarkSector.github.com/blog/command-line-pastebin/"/>
+    <updated>2012-05-06T22:45:00+05:30</updated>
+    <id>http://DarkSector.github.com/blog/command-line-pastebin</id>
+    <content type="html"><![CDATA[<p>Found out about a command line pastebin. I really like the example. it's simple for instance, you'd like the output of /foo/bar directly on pastebin, you do this.</p>
+
+<p><code>bash Sprunge
+$ cat /foo/bar | curl -F 'sprunge=&lt;-' http://sprunge.us
+  http://sprunge.us/Zi1Lk
+</code></p>
+
+<p>Yep, <a href="http://sprunge.us/">Sprunge.us</a>
+It's source resides on <a href="http://github.com/rupa/sprunge">Github</a></p>
+
+<p>Of course writing the whole syntax will loose it's novelty, so I advise you to use an alias for the same.</p>
+
+<p><code>bash pastebin
+$ echo "alias = \"curl -F 'sprunge=&lt;-' http://sprunge.us\"" &gt;&gt; ~/.bash_profile
+$ source ~/.bash_profile
+</code>
+Yep, that will add an alias to your bash_profile and then source it to use the commands immediately</p>
+]]></content>
+  </entry>
+  
+</feed>
