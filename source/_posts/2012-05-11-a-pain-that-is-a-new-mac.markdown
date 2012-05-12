@@ -10,6 +10,8 @@ Once the novelty of getting a new mac has worn off, the real trouble sets in. Co
 
 So to get Xcode 4.3 you need to first upgrade to 10.7.3 and then go through the motions of getting Xcode first and then letting it install itself.
 
-Since most of the packages come with a proper building process, it's necessary to have GCC 4.2-llvm or clang installed and that comes only with Xcode. So till the time you get it, you can't use Machomebrew or most of the Python packages. 
+Since most of the packages come with a proper building process, it's necessary to have GCC 4.2-llvm or clang installed and that comes only with Xcode. So till the time you get it, you can't use Machomebrew or most of the Python packages.
+
+{% img http://f.cl.ly/items/2R3n1y0x2a0X1r193829/Screen%20Shot%202012-05-12%20at%201.59.43%20PM.png %} 
 
 I guess I'll have to take this POS home and then put it on a continuous install. Thanks a lot Apple. So much for your design.
