@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Spotlight | Pronoy Chopra's Blog]]></title>
   <link href="http://DarkSector.github.com/blog/categories/spotlight/atom.xml" rel="self"/>
   <link href="http://DarkSector.github.com/"/>
-  <updated>2012-05-14T12:14:14+05:30</updated>
+  <updated>2012-05-14T15:00:48+05:30</updated>
   <id>http://DarkSector.github.com/</id>
   <author>
     <name><![CDATA[Pronoy Chopra]]></name>
@@ -12,6 +12,21 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Replaced Spotlight with QuickSilver]]></title>
+    <link href="http://DarkSector.github.com/blog/replaced-spotlight-with-quicksilver/"/>
+    <updated>2012-05-14T14:57:00+05:30</updated>
+    <id>http://DarkSector.github.com/blog/replaced-spotlight-with-quicksilver</id>
+    <content type="html"><![CDATA[<p>So after I decided not to use mds I removed spotlight's icon as well. Now I am using QuickSilver for the whole thing. It's way faster.</p>
+
+<p>Here's a screenshot.</p>
+
+<p><img src="http://f.cl.ly/items/1H3A2A0W0Q2A2j0E3S21/Screen%20Shot%202012-05-14%20at%202.54.46%20PM.png"></p>
+
+<p>Yep, seems legit.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Spotlight/mds the memory hogger]]></title>
