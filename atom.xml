@@ -4,7 +4,7 @@
   <title><![CDATA[Pronoy Chopra's Blog]]></title>
   <link href="http://DarkSector.github.com/atom.xml" rel="self"/>
   <link href="http://DarkSector.github.com/"/>
-  <updated>2012-05-14T15:00:48+05:30</updated>
+  <updated>2012-05-23T23:18:01+05:30</updated>
   <id>http://DarkSector.github.com/</id>
   <author>
     <name><![CDATA[Pronoy Chopra]]></name>
@@ -12,6 +12,84 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[My experience with Pymongo till now]]></title>
+    <link href="http://DarkSector.github.com/blog/my-experience-with-pymongo-till-now/"/>
+    <updated>2012-05-21T23:34:00+05:30</updated>
+    <id>http://DarkSector.github.com/blog/my-experience-with-pymongo-till-now</id>
+    <content type="html"><![CDATA[<p>In one word, it&#8217;s been pretty awesome. <a href="http://api.mongodb.org/python/current/">PyMongo</a>, the Non relational database is pretty good. Here&#8217;s some code.</p>
+
+<figure class='code'><figcaption><span>PyMongo insertion</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">from</span> <span class="nn">pymongo</span> <span class="kn">import</span> <span class="n">Connection</span> <span class="k">as</span> <span class="n">c</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">c</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="s">&#39;localhost&#39;</span><span class="p">,</span> <span class="mi">45000</span><span class="p">)</span>
+</span><span class='line'><span class="n">db</span> <span class="o">=</span> <span class="n">c</span><span class="p">[</span><span class="s">&#39;test_db&#39;</span><span class="p">]</span>
+</span><span class='line'><span class="n">users</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">test_db</span><span class="p">[</span><span class="s">&#39;userlist&#39;</span><span class="p">]</span>
+</span><span class='line'><span class="n">user</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;username&#39;</span><span class="p">:</span><span class="s">&#39;pronoy&#39;</span><span class="p">,</span> <span class="s">&#39;password&#39;</span><span class="p">:</span><span class="s">&#39;foobar&#39;</span><span class="p">}</span>
+</span><span class='line'><span class="n">users</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now to retrieve the info it&#8217;s even simpler.</p>
+
+<figure class='code'><figcaption><span>Retrieving data</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">from</span> <span class="nn">pymongo</span> <span class="kn">import</span> <span class="n">Connection</span> <span class="k">as</span> <span class="n">c</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">c</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="s">&#39;localhost&#39;</span><span class="p">,</span> <span class="mi">45000</span><span class="p">)</span>
+</span><span class='line'><span class="n">db</span> <span class="o">=</span> <span class="n">c</span><span class="p">[</span><span class="s">&#39;test_db&#39;</span><span class="p">]</span>
+</span><span class='line'><span class="n">users</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">test_db</span><span class="p">[</span><span class="s">&#39;userlist&#39;</span><span class="p">]</span>
+</span><span class='line'><span class="n">users</span><span class="o">.</span><span class="n">find</span><span class="p">({</span><span class="s">&#39;username&#39;</span><span class="p">:</span><span class="s">&#39;pronoy&#39;</span><span class="p">})</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The interesting this is, if the collection isn&#8217;t available it&#8217;ll create it and if the database doesn&#8217;t exist, it&#8217;ll create that too. I tried using mongodb deployed on our lab machine and the python application running on my machine. Worked like a charm.</p>
+
+<p>Now we can also search according to the _id key generated by the BSON.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">from</span> <span class="nn">pymongo</span> <span class="kn">import</span> <span class="n">Connection</span> <span class="k">as</span> <span class="n">c</span>
+</span><span class='line'><span class="kn">from</span> <span class="nn">bson.objectid</span> <span class="kn">import</span> <span class="n">ObjectId</span><span class="p">,</span> <span class="n">InvalidId</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">c</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="s">&#39;localhost&#39;</span><span class="p">,</span> <span class="mi">45000</span><span class="p">)</span>
+</span><span class='line'><span class="n">db</span> <span class="o">=</span> <span class="n">c</span><span class="p">[</span><span class="s">&#39;test_db&#39;</span><span class="p">]</span>
+</span><span class='line'><span class="n">users</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">test_db</span><span class="p">[</span><span class="s">&#39;userlist&#39;</span><span class="p">]</span>
+</span><span class='line'><span class="k">try</span><span class="p">:</span>
+</span><span class='line'>  <span class="n">users</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">ObjectId</span><span class="p">(</span><span class="s">&#39;728als450000000&#39;</span><span class="p">))</span>
+</span><span class='line'><span class="k">except</span> <span class="n">InvalidId</span><span class="p">:</span>
+</span><span class='line'>  <span class="k">print</span> <span class="s">&quot;No such ID exists&quot;</span>
+</span><span class='line'><span class="k">else</span><span class="p">:</span>
+</span><span class='line'>  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">users</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">ObjectId</span><span class="p">(</span><span class="s">&#39;728als450000000&#39;</span><span class="p">)):</span>
+</span><span class='line'>      <span class="k">print</span> <span class="n">i</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Took me quite a while to figure out that ObjectId and InvalidId belong to BSON and not pymongo. Either way work is good and next post I&#8217;ll share my experience with Flask-Sijax. It&#8217;s a really cool way of implementing jQuery Ajax calls.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Replaced Spotlight with QuickSilver]]></title>
