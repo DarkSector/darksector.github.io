@@ -112,6 +112,17 @@ It&#8217;s source resides on <a href="http://github.com/rupa/sprunge">Github</a>
 
 
 <p>Yep, that will add an alias to your bash_profile and then source it to use the commands immediately</p>
+
+<h2>Here&#8217;s how it&#8217;ll look</h2>
+
+<figure class='code'><figcaption><span>Using pastie as an alias</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span><span class="nb">echo</span> <span class="s2">&quot;alias pastie=\&quot;curl -F &#39;sprunge=&lt;-&#39; http://sprunge.us\&quot;&quot;</span> &gt;&gt; ~/.bash_profile
+</span><span class='line'><span class="nv">$ </span><span class="nb">source</span> ~/.bash_profile
+</span><span class='line'><span class="nv">$ </span>brew doctor | pastie
+</span></code></pre></td></tr></table></div></figure>
+
 </div>
 
 

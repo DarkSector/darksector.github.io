@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Command line | Pronoy Chopra's Blog]]></title>
   <link href="http://DarkSector.github.com/blog/categories/command-line/atom.xml" rel="self"/>
   <link href="http://DarkSector.github.com/"/>
-  <updated>2012-05-30T00:03:30+05:30</updated>
+  <updated>2012-05-30T22:15:10+05:30</updated>
   <id>http://DarkSector.github.com/</id>
   <author>
     <name><![CDATA[Pronoy Chopra]]></name>
@@ -35,6 +35,14 @@ $ echo "alias = \"curl -F 'sprunge=&lt;-' http://sprunge.us\"" &gt;&gt; ~/.bash_
 $ source ~/.bash_profile
 </code>
 Yep, that will add an alias to your bash_profile and then source it to use the commands immediately</p>
+
+<h2>Here's how it'll look</h2>
+
+<p><code>bash Using pastie as an alias
+$ echo "alias pastie=\"curl -F 'sprunge=&lt;-' http://sprunge.us\"" &gt;&gt; ~/.bash_profile
+$ source ~/.bash_profile
+$ brew doctor | pastie
+</code></p>
 ]]></content>
   </entry>
   
