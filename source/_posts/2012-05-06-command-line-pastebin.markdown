@@ -23,3 +23,10 @@ $ echo "alias = \"curl -F 'sprunge=<-' http://sprunge.us\"" >> ~/.bash_profile
 $ source ~/.bash_profile
 ```
 Yep, that will add an alias to your bash_profile and then source it to use the commands immediately
+
+##Here's how it'll look
+```bash Using pastie as an alias
+$ echo "alias pastie=\"curl -F 'sprunge=<-' http://sprunge.us\"" >> ~/.bash_profile
+$ source ~/.bash_profile
+$ brew doctor | pastie
+```
