@@ -8,7 +8,7 @@ categories: ["Heroku", "Cloud","Deployment","Resource Management"]
 
 So we finally deployed on [Heroku](http://heroku.com) for a quick run and what do we find? The dynos idle if not used for an hour. So your app will sleep if you don't send it a request for an hour. I was scared for a second when I realized my app had been killed because probably it refused to sleep.
 
-But hey what's this, there's another app that sends request to wake idling apps so that the dynos won't sleep. Enter [Wekkar](http://www.wekkars.com/). I mean there isn't a puzzle created by human beings that another human being can't solve. Well I read that in an Edgar Allan Poe book so nevermind the cheesy lines. 
+But hey what's this, there's another app that sends request to wake idling apps so that the dynos won't sleep. Enter [Wekkars](http://www.wekkars.com/). I mean there isn't a puzzle created by human beings that another human being can't solve. Well I read that in an Edgar Allan Poe book so nevermind the cheesy lines. 
 
 On the other hand, the good thing about Heroku is it's ease of deployment. I mean what do you need to do really:
 
