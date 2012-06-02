@@ -4,7 +4,7 @@
   <title><![CDATA[Pronoy Chopra's Blog]]></title>
   <link href="http://DarkSector.github.com/atom.xml" rel="self"/>
   <link href="http://DarkSector.github.com/"/>
-  <updated>2012-06-02T11:56:00+05:30</updated>
+  <updated>2012-06-02T11:57:05+05:30</updated>
   <id>http://DarkSector.github.com/</id>
   <author>
     <name><![CDATA[Pronoy Chopra]]></name>
@@ -12,15 +12,6 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
-  
-  <entry>
-    <title type="html"><![CDATA[Tata Photon on Mac OS X 10.7.3 Lion]]></title>
-    <link href="http://DarkSector.github.com/blog/tata-photon-on-mac-os-x-10-dot-7-3-lion/"/>
-    <updated>2012-06-02T00:47:00+05:30</updated>
-    <id>http://DarkSector.github.com/blog/tata-photon-on-mac-os-x-10-dot-7-3-lion</id>
-    <content type="html"><![CDATA[
-]]></content>
-  </entry>
   
   <entry>
     <title type="html"><![CDATA[Heroku is full of surprises]]></title>
