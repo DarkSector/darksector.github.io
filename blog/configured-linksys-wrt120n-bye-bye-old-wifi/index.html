@@ -1,0 +1,254 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Configured Linksys WRT120N: Bye bye old Wifi - Pronoy Chopra's Blog</title>
+  <meta name="author" content="Pronoy Chopra">
+
+  
+  <meta name="description" content="So I finally decided to close my native router (Teracom&#8217;s) Wifi and get a proper lossless Wifi running at home. I have had the urge to use this &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://DarkSector.github.com/blog/configured-linksys-wrt120n-bye-bye-old-wifi">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Pronoy Chopra's Blog" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Pronoy Chopra's Blog</a></h1>
+  
+    <h2>Rants and code</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:DarkSector.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Configured Linksys WRT120N: Bye Bye Old Wifi</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-06-05T11:23:00+05:30" pubdate data-updated="true">Jun 5<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>So I finally decided to close my native router (Teracom&#8217;s) Wifi and get a proper lossless Wifi running at home. I have had the urge to use this router for a long time now. It was gifted to me by my cousin but I never got around to understanding how to deploy it. Except today. I closed the Teracom Wifi and extended an ethernet cable to the Linksys router.</p>
+
+<p>Now earlier I wasn&#8217;t able to deploy it because I didn&#8217;t realize it ran on an extended bridged network. I thought it ran PPPoE. I mean it does run PPPoE but only via a service provider&#8217;s ethernet network. Considering over here in India we don&#8217;t have that we use a bridged network. Okay so that being said and done, I tried to plug an ethernet cable running from the Teracom (henceforth called T) to the Cisco.</p>
+
+<p><img src="http://www.zdtronic.com/images/WRT120N.jpg"></p>
+
+<p>It didn&#8217;t obviously work the first time (No surprised there). But strangely it was communicating with the network but not relaying packets here. Then I remembered our old exercises back from college. It was obvious, there was subnet conflict. The second router would have two networks. One terminating at it and the other originating from it.</p>
+
+<p>So, if the first subnet was as 192.168.1.foo the other would obviously have to be different. So, the other became 192.160.1.foo and voila it worked like a charm. The problem with T&#8217;s network was that it was dropping packets a lot. I don&#8217;t know why that started happening suddenly but hey, use Cisco be safe.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Pronoy Chopra</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-06-05T11:23:00+05:30" pubdate data-updated="true">Jun 5<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/cisco/'>Cisco</a>, <a class='category' href='/blog/categories/linksys/'>Linksys</a>, <a class='category' href='/blog/categories/network/'>Network</a>, <a class='category' href='/blog/categories/subnet/'>Subnet</a>, <a class='category' href='/blog/categories/wrt120n/'>WRT120N</a>, <a class='category' href='/blog/categories/wifi/'>WiFi</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://DarkSector.github.com/blog/configured-linksys-wrt120n-bye-bye-old-wifi/" data-via="" data-counturl="http://DarkSector.github.com/blog/configured-linksys-wrt120n-bye-bye-old-wifi/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/heroku-is-full-of-surprises/" title="Previous Post: Heroku is full of surprises">&laquo; Heroku is full of surprises</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/configured-linksys-wrt120n-bye-bye-old-wifi/">Configured Linksys WRT120N: Bye bye old Wifi</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/heroku-is-full-of-surprises/">Heroku is full of surprises</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/avr-assembly/">AVR Assembly revisted</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/my-experience-with-pymongo-till-now/">My experience with Pymongo till now</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/replaced-spotlight-with-quicksilver/">Replaced Spotlight with QuickSilver</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/DarkSector">@DarkSector</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'DarkSector',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Pronoy Chopra -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
