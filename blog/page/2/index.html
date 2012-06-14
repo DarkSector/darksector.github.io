@@ -9,7 +9,8 @@
   <meta name="author" content="Pronoy Chopra">
 
   
-  <meta name="description" content="My Macbook Air has all its function keys multiplexed with other special functions like Sound up, Sound down, Mute, etc. Now, I really need to pop up &hellip;">
+  <meta name="description" content="Strangely there is no lsusb on Mac OS X. So I searched and found this command system_profiler1
+$ system_profiler SPUSBDataType Check out the man page &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -64,6 +65,49 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/lsusb-equivalent-on-mac-os-x/">Lsusb Equivalent on Mac OS X</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-05-05T22:58:00+05:30" pubdate data-updated="true">May 5<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Strangely there is no lsusb on Mac OS X. So I searched and found this command</p>
+
+<figure class='code'><figcaption><span>system_profiler</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>system_profiler SPUSBDataType
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Check out the man page for system_profiler, it&#8217;s got loads of options.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -1161,6 +1205,10 @@ Oh btw, it&#8217;s my birthday today :)</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/nasas-iss-live-stream/">NASAs ISS live stream</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/configured-linksys-wrt120n-bye-bye-old-wifi/">Configured Linksys WRT120N: Bye bye old Wifi</a>
       </li>
     
@@ -1174,10 +1222,6 @@ Oh btw, it&#8217;s my birthday today :)</p>
     
       <li class="post">
         <a href="/blog/my-experience-with-pymongo-till-now/">My experience with Pymongo till now</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/replaced-spotlight-with-quicksilver/">Replaced Spotlight with QuickSilver</a>
       </li>
     
   </ul>
