@@ -4,7 +4,7 @@
   <title><![CDATA[Pronoy Chopra's Blog]]></title>
   <link href="http://DarkSector.github.com/atom.xml" rel="self"/>
   <link href="http://DarkSector.github.com/"/>
-  <updated>2012-06-15T02:56:11+05:30</updated>
+  <updated>2012-06-26T13:40:52+05:30</updated>
   <id>http://DarkSector.github.com/</id>
   <author>
     <name><![CDATA[Pronoy Chopra]]></name>
@@ -12,6 +12,182 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Arduino IR code: updated]]></title>
+    <link href="http://DarkSector.github.com/blog/arduino-ir-code-updated/"/>
+    <updated>2012-06-26T13:34:00+05:30</updated>
+    <id>http://DarkSector.github.com/blog/arduino-ir-code-updated</id>
+    <content type="html"><![CDATA[<p>Here&#8217;s my updated Arduino code that I wrote to go with the protoshield by <a href="http://www.9circuits.com">9circuits</a> and the relay shield connected to the protoshield.</p>
+
+<p><img src="http://arduino.cc/en/uploads/Main/ArduinoUno_r2_front450px.jpg"></p>
+
+<figure class='code'><figcaption><span>ArduinoIR.cpp</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+<span class='line-number'>69</span>
+<span class='line-number'>70</span>
+<span class='line-number'>71</span>
+<span class='line-number'>72</span>
+<span class='line-number'>73</span>
+<span class='line-number'>74</span>
+<span class='line-number'>75</span>
+<span class='line-number'>76</span>
+<span class='line-number'>77</span>
+<span class='line-number'>78</span>
+<span class='line-number'>79</span>
+<span class='line-number'>80</span>
+</pre></td><td class='code'><pre><code class='obj-c'><span class='line'><span class="kt">int</span> <span class="n">RECV_PIN</span> <span class="o">=</span> <span class="mi">11</span><span class="p">;</span>
+</span><span class='line'><span class="kt">int</span> <span class="n">relay2</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>
+</span><span class='line'><span class="kt">int</span> <span class="n">relay1</span> <span class="o">=</span> <span class="mi">6</span><span class="p">;</span>
+</span><span class='line'><span class="kt">long</span> <span class="n">vol_down</span> <span class="o">=</span> <span class="mi">948321226</span><span class="p">;</span>
+</span><span class='line'><span class="kt">long</span> <span class="n">vol_up</span> <span class="o">=</span> <span class="mi">948321218</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">boolean</span> <span class="n">relay1_FLAG</span> <span class="o">=</span> <span class="n">false</span><span class="p">;</span>
+</span><span class='line'><span class="n">boolean</span> <span class="n">relay2_FLAG</span> <span class="o">=</span> <span class="n">false</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="cp">#include &lt;IRremote.h&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">IRrecv</span> <span class="n">irrecv</span><span class="p">(</span><span class="n">RECV_PIN</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">decode_results</span> <span class="n">results</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">9600</span><span class="p">);</span>
+</span><span class='line'>  <span class="n">irrecv</span><span class="p">.</span><span class="n">enableIRIn</span><span class="p">();</span>
+</span><span class='line'>  <span class="n">pinMode</span><span class="p">(</span><span class="n">relay1</span><span class="p">,</span><span class="n">OUTPUT</span><span class="p">);</span>
+</span><span class='line'>  <span class="n">pinMode</span><span class="p">(</span><span class="n">relay2</span><span class="p">,</span><span class="n">OUTPUT</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="kt">void</span> <span class="nf">check_val_execute</span><span class="p">(</span><span class="kt">long</span> <span class="n">a</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">vol_down</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">if</span> <span class="p">(</span><span class="n">relay1_FLAG</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>      <span class="n">light1_on</span><span class="p">();</span>
+</span><span class='line'>      <span class="n">relay1_FLAG</span> <span class="o">=</span> <span class="o">!</span><span class="p">(</span><span class="n">relay1_FLAG</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>    <span class="k">else</span> <span class="p">{</span>
+</span><span class='line'>      <span class="n">light1_off</span><span class="p">();</span>
+</span><span class='line'>      <span class="n">relay1_FLAG</span> <span class="o">=</span> <span class="o">!</span><span class="p">(</span><span class="n">relay1_FLAG</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">vol_up</span><span class="p">){</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">if</span> <span class="p">(</span><span class="n">relay2_FLAG</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>      <span class="n">light2_on</span><span class="p">();</span>
+</span><span class='line'>      <span class="n">relay2_FLAG</span> <span class="o">=</span> <span class="o">!</span><span class="p">(</span><span class="n">relay2_FLAG</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">else</span> <span class="p">{</span>
+</span><span class='line'>      <span class="n">light2_off</span><span class="p">();</span>
+</span><span class='line'>      <span class="n">relay2_FLAG</span> <span class="o">=</span> <span class="o">!</span><span class="p">(</span><span class="n">relay2_FLAG</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="kt">void</span> <span class="nf">light1_on</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>  <span class="n">digitalWrite</span><span class="p">(</span><span class="n">relay1</span><span class="p">,</span><span class="n">HIGH</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="kt">void</span> <span class="nf">light2_on</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>  <span class="n">digitalWrite</span><span class="p">(</span><span class="n">relay2</span><span class="p">,</span><span class="n">HIGH</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'><span class="kt">void</span> <span class="nf">light1_off</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>  <span class="n">digitalWrite</span><span class="p">(</span><span class="n">relay1</span><span class="p">,</span><span class="n">LOW</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="kt">void</span> <span class="nf">light2_off</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>  <span class="n">digitalWrite</span><span class="p">(</span><span class="n">relay2</span><span class="p">,</span><span class="n">LOW</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="k">if</span> <span class="p">(</span><span class="n">irrecv</span><span class="p">.</span><span class="n">decode</span><span class="p">(</span><span class="o">&amp;</span><span class="n">results</span><span class="p">))</span> <span class="p">{</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">//Serial.println(results.value, DEC);</span>
+</span><span class='line'>    <span class="n">delay</span><span class="p">(</span><span class="mi">300</span><span class="p">);</span>
+</span><span class='line'>    <span class="n">irrecv</span><span class="p">.</span><span class="n">resume</span><span class="p">();</span>
+</span><span class='line'>    <span class="kt">long</span> <span class="n">x</span> <span class="o">=</span> <span class="n">results</span><span class="p">.</span><span class="n">value</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">check_val_execute</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>No comments yet, I&#8217;ll do that later.r</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[NASAs ISS live stream]]></title>
