@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Command line pastebin - Pronoy Chopra's Blog</title>
+  <title>Finally got Allegro 5 working on Mac OS X - Pronoy Chopra's Blog</title>
   <meta name="author" content="Pronoy Chopra">
 
   
-  <meta name="description" content="Found out about a command line pastebin. I really like the example. it&#8217;s simple for instance, you&#8217;d like the output of /foo/bar directly &hellip;">
+  <meta name="description" content="I&#8217;ve ranted about this before I was unable to get Allegro working on Mac OS X. So today, for no reason I tried it again. Followed the Wiki to &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://DarkSector.github.com/blog/command-line-pastebin/">
+  <link rel="canonical" href="http://DarkSector.github.com/blog/finally-got-allegro-5-working-on-mac-os-x/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -67,7 +67,7 @@
   
   <header>
     
-      <h1 class="entry-title">Command Line Pastebin</h1>
+      <h1 class="entry-title">Finally Got Allegro 5 Working on Mac OS X</h1>
     
     
       <p class="meta">
@@ -83,46 +83,18 @@
   
 
 
-<time datetime="2012-05-06T22:45:00+05:30" pubdate data-updated="true">May 6<span>th</span>, 2012</time>
+<time datetime="2012-07-21T20:43:00+05:30" pubdate data-updated="true">Jul 21<span>st</span>, 2012</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>Found out about a command line pastebin. I really like the example. it&#8217;s simple for instance, you&#8217;d like the output of /foo/bar directly on pastebin, you do this.</p>
+<div class="entry-content"><p>I&#8217;ve ranted about this before I was unable to get Allegro working on Mac OS X. So today, for no reason I tried it again. Followed the <a href="http://wiki.allegro.cc/index.php?title=OSX,_Xcode_4,_Framework">Wiki</a> to the letter and yet, it wouldn&#8217;t work. It was unable to find the frameworks. Specifically Allegro-5.0Framework. I did EVERYTHING and couldn&#8217;t figure it out. Until while searching for Header Search Paths in Build Settings caught my eye. There was a Framework Search Path too. And I provided it with the path /Library/Framework.</p>
 
-<figure class='code'><figcaption><span>Sprunge</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>cat /foo/bar | curl -F <span class="s1">&#39;sprunge=&lt;-&#39;</span> http://sprunge.us
-</span><span class='line'>  http://sprunge.us/Zi1Lk
-</span></code></pre></td></tr></table></div></figure>
+<p><img src="http://f.cl.ly/items/0d2p1b3y2n2D3b0f0R1q/Screen%20Shot%202012-07-21%20at%209.42.25%20PM.png"></p>
 
-
-<p>Yep, <a href="http://sprunge.us/">Sprunge.us</a>
-It&#8217;s source resides on <a href="http://github.com/rupa/sprunge">Github</a></p>
-
-<p>Of course writing the whole syntax will loose it&#8217;s novelty, so I advise you to use an alias for the same.</p>
-
-<figure class='code'><figcaption><span>pastebin</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span><span class="nb">echo</span> <span class="s2">&quot;alias = \&quot;curl -F &#39;sprunge=&lt;-&#39; http://sprunge.us\&quot;&quot;</span> &gt;&gt; ~/.bash_profile
-</span><span class='line'><span class="nv">$ </span><span class="nb">source</span> ~/.bash_profile
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Yep, that will add an alias to your bash_profile and then source it to use the commands immediately</p>
-
-<h2>Here&#8217;s how it&#8217;ll look</h2>
-
-<figure class='code'><figcaption><span>Using pastie as an alias</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span><span class="nb">echo</span> <span class="s2">&quot;alias pastie=\&quot;curl -F &#39;sprunge=&lt;-&#39; http://sprunge.us\&quot;&quot;</span> &gt;&gt; ~/.bash_profile
-</span><span class='line'><span class="nv">$ </span><span class="nb">source</span> ~/.bash_profile
-</span><span class='line'><span class="nv">$ </span>brew doctor | pastie
-</span></code></pre></td></tr></table></div></figure>
-
+<p>It worked and I need to kill someone now. Seriously, fuck you Xcode, fuck you.</p>
 </div>
 
 
@@ -145,12 +117,12 @@ It&#8217;s source resides on <a href="http://github.com/rupa/sprunge">Github</a>
   
 
 
-<time datetime="2012-05-06T22:45:00+05:30" pubdate data-updated="true">May 6<span>th</span>, 2012</time>
+<time datetime="2012-07-21T20:43:00+05:30" pubdate data-updated="true">Jul 21<span>st</span>, 2012</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/command-line/'>Command line</a>, <a class='category' href='/blog/categories/pastebin/'>Pastebin</a>
+    <a class='category' href='/blog/categories/allegro/'>Allegro</a>, <a class='category' href='/blog/categories/mac-os-x-lion/'>Mac OS X Lion</a>
   
 </span>
 
@@ -159,7 +131,7 @@ It&#8217;s source resides on <a href="http://github.com/rupa/sprunge">Github</a>
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://DarkSector.github.com/blog/command-line-pastebin/" data-via="" data-counturl="http://DarkSector.github.com/blog/command-line-pastebin/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://DarkSector.github.com/blog/finally-got-allegro-5-working-on-mac-os-x/" data-via="" data-counturl="http://DarkSector.github.com/blog/finally-got-allegro-5-working-on-mac-os-x/" >Tweet</a>
   
   
   
@@ -168,10 +140,8 @@ It&#8217;s source resides on <a href="http://github.com/rupa/sprunge">Github</a>
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/lsusb-equivalent-on-mac-os-x/" title="Previous Post: lsusb equivalent on Mac OS X">&laquo; lsusb equivalent on Mac OS X</a>
+        <a class="basic-alignment left" href="/blog/arduino-ir-code-updated/" title="Previous Post: Arduino IR code: updated">&laquo; Arduino IR code: updated</a>
       
-      
-        <a class="basic-alignment right" href="/blog/a-pain-that-is-a-new-mac/" title="Next Post: A pain that is a new mac">A pain that is a new mac &raquo;</a>
       
     </p>
   </footer>
