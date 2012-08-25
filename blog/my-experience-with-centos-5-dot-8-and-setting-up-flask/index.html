@@ -1,0 +1,385 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>My experience with CentOS 5.8 and setting up Flask - Pronoy Chopra's Blog</title>
+  <meta name="author" content="Pronoy Chopra">
+
+  
+  <meta name="description" content="I have worked with Debian, Ubuntu Server, ArchLinux and now CentOS and what a kick in the nuts it has been. CentOS 5.8 ships with Python 2.4 and it &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://DarkSector.github.com/blog/my-experience-with-centos-5-dot-8-and-setting-up-flask/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Pronoy Chopra's Blog" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Pronoy Chopra's Blog</a></h1>
+  
+    <h2>Rants and code</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:DarkSector.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">My Experience With CentOS 5.8 and Setting Up Flask</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-08-26T03:44:00+05:30" pubdate data-updated="true">Aug 26<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>I have worked with Debian, Ubuntu Server, ArchLinux and now CentOS and what a kick in the nuts it has been. CentOS 5.8 ships with Python 2.4 and it is an absolute pain to setup. But finally it&#8217;s done.</p>
+
+<p>So I began with installing Python2.7.3 first.</p>
+
+<figure class='code'><figcaption><span>install Python2.7</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>wget http://www.python.org/ftp/python/2.7/Python-2.7.tgz
+</span><span class='line'><span class="nv">$ </span>tar -xvf Python-2.7.tgz
+</span><span class='line'><span class="nv">$ </span><span class="nb">cd </span>Python-2.7
+</span><span class='line'><span class="nv">$ </span>su
+</span><span class='line'><span class="c"># ./configure --prefix=/usr/local</span>
+</span><span class='line'><span class="c"># make &amp;&amp; make altinstall</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now we have Python2.7 binary in /usr/local/bin and we can go about installing Setuptools</p>
+
+<figure class='code'><figcaption><span>install Setuptools</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>wget http://pypi.python.org/packages/source/s/setuptools/setuptools-0.6c11.tar.gz#md5<span class="o">=</span>7df2a529a074f613b509fb44feefe74e
+</span><span class='line'><span class="nv">$ </span>tar -xvf setuptools-0.6c11.tar.gz
+</span><span class='line'><span class="nv">$ </span><span class="nb">cd </span>setuptools-0.6c11
+</span><span class='line'><span class="nv">$ </span>su
+</span><span class='line'><span class="c"># python2.7 setup.py install</span>
+</span><span class='line'><span class="c"># easy_install-2.7 install pip</span>
+</span><span class='line'><span class="c"># pip-2.7 install virtualenv</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now, after having done all of this, I needed to install mod_wsgi</p>
+
+<figure class='code'><figcaption><span>mod_wsgi</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>yum install mod_wsgi
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And that&#8217;s where I asked people at #pocoo to shoot me in the face. It turns out you need mod_wsgi compiled with Python2.7 to use it with Python2.7</p>
+
+<p>So, let&#8217;s uninstall mod_wsgi and then build it from source</p>
+
+<figure class='code'><figcaption><span>compile mod_wsgi</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>wget http://code.google.com/p/modwsgi/downloads/detail?name<span class="o">=</span>mod_wsgi-3.4.tar.gz
+</span><span class='line'><span class="nv">$ </span>tar -xvf mod_wsgi-3.4.tar.gz
+</span><span class='line'><span class="nv">$ </span><span class="nb">cd </span>mod_wsgi-3.4
+</span><span class='line'><span class="nv">$ </span>./configure --using-python<span class="o">=</span>/usr/local/bin/python2.7
+</span><span class='line'><span class="nv">$ </span>make
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>I got this error <a href="http://code.google.com/p/modwsgi/wiki/InstallationIssues#Mixing_32_Bit_And_64_Bit_Packages">http://code.google.com/p/modwsgi/wiki/InstallationIssues#Mixing_32_Bit_And_64_Bit_Packages</a> Which means it needs Python2.7 built with x86_64 not the 32 bit.</p>
+
+<p>So, now, reinstall Python2.7</p>
+
+<figure class='code'><figcaption><span>install Python2.7</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span><span class="nb">cd </span>Python-2.7
+</span><span class='line'><span class="nv">$ </span>su
+</span><span class='line'><span class="c"># ./configure --prefix=/usr/local --enable-shared</span>
+</span><span class='line'><span class="c"># make &amp;&amp; make altinstall</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And now reinstall mod_wsgi. Wow, this has been so difficult.</p>
+
+<p>Anyway the problem doesn&#8217;t end here. Now we have to configure httpd.conf</p>
+
+<figure class='code'><figcaption><span>httpd.conf</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'>WSGISocketPrefix /var/run/wsgi
+</span><span class='line'>WSGIPythonHome /var/www/virtual
+</span><span class='line'>#WSGIPythonPath /var/www/test/virtual
+</span><span class='line'><span class="nt">&lt;VirtualHost</span> <span class="err">122.99.126.71:80</span><span class="nt">&gt;</span>
+</span><span class='line'>ServerName rhknhost
+</span><span class='line'>WSGIDaemonProcess herokufinal user=pronoy group=pronoy threads=5
+</span><span class='line'>WSGIScriptAlias / &quot;/var/www/herokufinal/herokufinal.wsgi&quot;
+</span><span class='line'>DocumentRoot /var/www/herokufinal
+</span><span class='line'>ErrorLog /var/www/herokufinal/logs/error.log
+</span><span class='line'>
+</span><span class='line'>        <span class="nt">&lt;Directory</span> <span class="err">/var/www/herokufinal</span><span class="nt">&gt;</span>
+</span><span class='line'>                WSGIProcessGroup herokufinal
+</span><span class='line'>                WSGIApplicationGroup %{GLOBAL}
+</span><span class='line'>                WSGIScriptReloading On
+</span><span class='line'>                Options Indexes FollowSymlinks Multiviews
+</span><span class='line'>                Order deny,allow
+</span><span class='line'>                Allow from all
+</span><span class='line'>        <span class="nt">&lt;/Directory&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;/VirtualHost&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And then create the .wsgi file for running the application</p>
+
+<figure class='code'><figcaption><span>myapplication.wsgi</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">activate_this</span>  <span class="o">=</span> <span class="s">&#39;/var/www/virtual/bin/activate_this.py&#39;</span>
+</span><span class='line'><span class="nb">execfile</span><span class="p">(</span><span class="n">activate_this</span><span class="p">,</span> <span class="nb">dict</span><span class="p">(</span><span class="n">__file__</span><span class="o">=</span><span class="n">activate_this</span><span class="p">))</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">sys</span>
+</span><span class='line'><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s">&#39;/var/www/herokufinal&#39;</span><span class="p">)</span>
+</span><span class='line'><span class="kn">from</span> <span class="nn">profilebuilder</span> <span class="kn">import</span> <span class="n">app</span> <span class="k">as</span> <span class="n">application</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Jesus. The time it took to figure this out. Oh God, I could&#8217;ve built a fucking house by then. 12 continuous hours. Never again CentOS. Never again.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Pronoy Chopra</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-08-26T03:44:00+05:30" pubdate data-updated="true">Aug 26<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/centos/'>CentOS</a>, <a class='category' href='/blog/categories/flask/'>Flask</a>, <a class='category' href='/blog/categories/linux/'>Linux</a>, <a class='category' href='/blog/categories/python/'>Python</a>, <a class='category' href='/blog/categories/python2-7-3/'>Python2.7.3</a>, <a class='category' href='/blog/categories/httpd/'>httpd</a>, <a class='category' href='/blog/categories/mod-wsgi/'>mod_wsgi</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://DarkSector.github.com/blog/my-experience-with-centos-5-dot-8-and-setting-up-flask/" data-via="" data-counturl="http://DarkSector.github.com/blog/my-experience-with-centos-5-dot-8-and-setting-up-flask/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/finally-got-allegro-5-working-on-mac-os-x/" title="Previous Post: Finally got Allegro 5 working on Mac OS X">&laquo; Finally got Allegro 5 working on Mac OS X</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/my-experience-with-centos-5-dot-8-and-setting-up-flask/">My experience with CentOS 5.8 and setting up Flask</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/finally-got-allegro-5-working-on-mac-os-x/">Finally got Allegro 5 working on Mac OS X</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/arduino-ir-code-updated/">Arduino IR code: updated</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/nasas-iss-live-stream/">NASAs ISS live stream</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/configured-linksys-wrt120n-bye-bye-old-wifi/">Configured Linksys WRT120N: Bye bye old Wifi</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/DarkSector">@DarkSector</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'DarkSector',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Pronoy Chopra -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

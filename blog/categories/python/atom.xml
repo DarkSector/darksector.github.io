@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Python | Pronoy Chopra's Blog]]></title>
   <link href="http://DarkSector.github.com/blog/categories/python/atom.xml" rel="self"/>
   <link href="http://DarkSector.github.com/"/>
-  <updated>2012-07-21T22:43:36+05:30</updated>
+  <updated>2012-08-26T04:24:20+05:30</updated>
   <id>http://DarkSector.github.com/</id>
   <author>
     <name><![CDATA[Pronoy Chopra]]></name>
@@ -12,6 +12,118 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[My experience with CentOS 5.8 and setting up Flask]]></title>
+    <link href="http://DarkSector.github.com/blog/my-experience-with-centos-5-dot-8-and-setting-up-flask/"/>
+    <updated>2012-08-26T03:44:00+05:30</updated>
+    <id>http://DarkSector.github.com/blog/my-experience-with-centos-5-dot-8-and-setting-up-flask</id>
+    <content type="html"><![CDATA[<p>I have worked with Debian, Ubuntu Server, ArchLinux and now CentOS and what a kick in the nuts it has been. CentOS 5.8 ships with Python 2.4 and it is an absolute pain to setup. But finally it's done.</p>
+
+<p>So I began with installing Python2.7.3 first.</p>
+
+<p>```bash install Python2.7
+$ wget http://www.python.org/ftp/python/2.7/Python-2.7.tgz
+$ tar -xvf Python-2.7.tgz
+$ cd Python-2.7
+$ su</p>
+
+<h1>./configure --prefix=/usr/local</h1>
+
+<h1>make &amp;&amp; make altinstall</h1>
+
+<p>```</p>
+
+<p>Now we have Python2.7 binary in /usr/local/bin and we can go about installing Setuptools</p>
+
+<p>```bash install Setuptools
+$ wget http://pypi.python.org/packages/source/s/setuptools/setuptools-0.6c11.tar.gz#md5=7df2a529a074f613b509fb44feefe74e
+$ tar -xvf setuptools-0.6c11.tar.gz
+$ cd setuptools-0.6c11
+$ su</p>
+
+<h1>python2.7 setup.py install</h1>
+
+<h1>easy_install-2.7 install pip</h1>
+
+<h1>pip-2.7 install virtualenv</h1>
+
+<p>```
+Now, after having done all of this, I needed to install mod_wsgi</p>
+
+<p><code>bash mod_wsgi
+$ yum install mod_wsgi
+</code></p>
+
+<p>And that's where I asked people at #pocoo to shoot me in the face. It turns out you need mod_wsgi compiled with Python2.7 to use it with Python2.7</p>
+
+<p>So, let's uninstall mod_wsgi and then build it from source</p>
+
+<p><code>bash compile mod_wsgi
+$ wget http://code.google.com/p/modwsgi/downloads/detail?name=mod_wsgi-3.4.tar.gz
+$ tar -xvf mod_wsgi-3.4.tar.gz
+$ cd mod_wsgi-3.4
+$ ./configure --using-python=/usr/local/bin/python2.7
+$ make
+</code></p>
+
+<p>I got this error <a href="http://code.google.com/p/modwsgi/wiki/InstallationIssues#Mixing_32_Bit_And_64_Bit_Packages">http://code.google.com/p/modwsgi/wiki/InstallationIssues#Mixing_32_Bit_And_64_Bit_Packages</a> Which means it needs Python2.7 built with x86_64 not the 32 bit.</p>
+
+<p>So, now, reinstall Python2.7</p>
+
+<p>```bash install Python2.7
+$ cd Python-2.7
+$ su</p>
+
+<h1>./configure --prefix=/usr/local --enable-shared</h1>
+
+<h1>make &amp;&amp; make altinstall</h1>
+
+<p>```</p>
+
+<p>And now reinstall mod_wsgi. Wow, this has been so difficult.</p>
+
+<p>Anyway the problem doesn't end here. Now we have to configure httpd.conf</p>
+
+<p>```xml httpd.conf
+WSGISocketPrefix /var/run/wsgi
+WSGIPythonHome /var/www/virtual</p>
+
+<h1>WSGIPythonPath /var/www/test/virtual</h1>
+
+<p><VirtualHost 122.99.126.71:80>
+ServerName rhknhost
+WSGIDaemonProcess herokufinal user=pronoy group=pronoy threads=5
+WSGIScriptAlias / "/var/www/herokufinal/herokufinal.wsgi"
+DocumentRoot /var/www/herokufinal
+ErrorLog /var/www/herokufinal/logs/error.log</p>
+
+<pre><code>    &lt;Directory /var/www/herokufinal&gt;
+            WSGIProcessGroup herokufinal
+            WSGIApplicationGroup %{GLOBAL}
+            WSGIScriptReloading On
+            Options Indexes FollowSymlinks Multiviews
+            Order deny,allow
+            Allow from all
+    &lt;/Directory&gt;
+</code></pre>
+
+<p></VirtualHost>
+```</p>
+
+<p>And then create the .wsgi file for running the application</p>
+
+<p><code>python myapplication.wsgi
+activate_this  = '/var/www/virtual/bin/activate_this.py'
+execfile(activate_this, dict(__file__=activate_this))
+import sys
+sys.path.insert(0, '/var/www/herokufinal')
+from profilebuilder import app as application
+</code></p>
+
+<p>Jesus. The time it took to figure this out. Oh God, I could've built a fucking house by then. 12 continuous hours. Never again CentOS. Never again.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[My experience with Pymongo till now]]></title>
@@ -263,63 +375,6 @@ submit = SubmitField('Submit')
 <p>Notice how the region field in StarterForm would require database driven choices? Yeah I need to figure out how to do that in my views function. It's important to render the views otherwise it might break the whole thing by circular imports.</p>
 
 <p>Also since Forms are classes it would be difficult to pass the arguments when calling the form in views. Okay let's attempt that.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Prototyping web based data acquisition applications]]></title>
-    <link href="http://DarkSector.github.com/blog/prototyping-web-based--data-acquisition-applications/"/>
-    <updated>2012-04-17T03:15:00+05:30</updated>
-    <id>http://DarkSector.github.com/blog/prototyping-web-based--data-acquisition-applications</id>
-    <content type="html"><![CDATA[<p>In order to build an application that processes or even simply displays data being acquired by say the serial port, it is not important to actually have the device connected.</p>
-
-<p>We can build virtual serial pairs and have our backend transmit and acquire dummy data and then test the processing logic. This is one of the reasons why I love Python. It just doesn't get in your way and gets you all the stuff you need to get started ASAP.</p>
-
-<p>So I've resorted to <a href="http://pyserial.sourceforge.net/">PySerial</a> and this application called <a href="http://code.google.com/p/macosxvirtualserialport/">Virtual Serial Port</a>. The latter creates a pair in the /dev and the former is used to put in the data from one end and retrieve it at the other. An important question one could ask, why not just generate dummy data than getting it passed through a virtual serial pipe? Answer is that it's the closest way to the real thing, might as well get it done.</p>
-
-<p>So, after having created serial ports, now to simply create two scripts that pour and retrieve data.</p>
-
-<p>``` python Dummy-feeder.py</p>
-
-<h1>!/usr/bin/python</h1>
-
-<p>import serial
-import random
-import time</p>
-
-<p><em>portname = '/dev/master'
-dumper = serial.Serial(</em>portname,115200,timeout=1)
-while(1):</p>
-
-<pre><code>l = random.randint(0,1023)
-k = random.choice('abcdef')
-dumper.write(k)
-dumper.write(str(l))
-print "random sensor:",k
-print "random print: ",l 
-time.sleep(2)
-</code></pre>
-
-<p>```</p>
-
-<p>``` python Receiver.py</p>
-
-<h1>!/usr/bin/python</h1>
-
-<p>import serial
-import json</p>
-
-<p><em>recvport = '/dev/slave'
-recv = serial.Serial(</em>recvport,115200,timeout=1)
-while(1):</p>
-
-<pre><code>data = recv.readline()
-print "received:", data
-</code></pre>
-
-<p>```</p>
-
-<p>Yeah, so as it's pretty obvious, dummy feeds the data and receiver receives it and just dumps it out on STDOUT. Now, that I've got this data, I need to be able to manipulate it to be able to send it to my application server. I think I'll need the involvement of JSON here. Must experiment.</p>
 ]]></content>
   </entry>
   

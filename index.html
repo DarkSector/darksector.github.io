@@ -9,7 +9,7 @@
   <meta name="author" content="Pronoy Chopra">
 
   
-  <meta name="description" content="I&#8217;ve ranted about this before I was unable to get Allegro working on Mac OS X. So today, for no reason I tried it again. Followed the Wiki to &hellip;">
+  <meta name="description" content="I have worked with Debian, Ubuntu Server, ArchLinux and now CentOS and what a kick in the nuts it has been. CentOS 5.8 ships with Python 2.4 and it &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -64,6 +64,181 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/my-experience-with-centos-5-dot-8-and-setting-up-flask/">My Experience With CentOS 5.8 and Setting Up Flask</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-08-26T03:44:00+05:30" pubdate data-updated="true">Aug 26<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I have worked with Debian, Ubuntu Server, ArchLinux and now CentOS and what a kick in the nuts it has been. CentOS 5.8 ships with Python 2.4 and it is an absolute pain to setup. But finally it&#8217;s done.</p>
+
+<p>So I began with installing Python2.7.3 first.</p>
+
+<figure class='code'><figcaption><span>install Python2.7</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>wget http://www.python.org/ftp/python/2.7/Python-2.7.tgz
+</span><span class='line'><span class="nv">$ </span>tar -xvf Python-2.7.tgz
+</span><span class='line'><span class="nv">$ </span><span class="nb">cd </span>Python-2.7
+</span><span class='line'><span class="nv">$ </span>su
+</span><span class='line'><span class="c"># ./configure --prefix=/usr/local</span>
+</span><span class='line'><span class="c"># make &amp;&amp; make altinstall</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now we have Python2.7 binary in /usr/local/bin and we can go about installing Setuptools</p>
+
+<figure class='code'><figcaption><span>install Setuptools</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>wget http://pypi.python.org/packages/source/s/setuptools/setuptools-0.6c11.tar.gz#md5<span class="o">=</span>7df2a529a074f613b509fb44feefe74e
+</span><span class='line'><span class="nv">$ </span>tar -xvf setuptools-0.6c11.tar.gz
+</span><span class='line'><span class="nv">$ </span><span class="nb">cd </span>setuptools-0.6c11
+</span><span class='line'><span class="nv">$ </span>su
+</span><span class='line'><span class="c"># python2.7 setup.py install</span>
+</span><span class='line'><span class="c"># easy_install-2.7 install pip</span>
+</span><span class='line'><span class="c"># pip-2.7 install virtualenv</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now, after having done all of this, I needed to install mod_wsgi</p>
+
+<figure class='code'><figcaption><span>mod_wsgi</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>yum install mod_wsgi
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And that&#8217;s where I asked people at #pocoo to shoot me in the face. It turns out you need mod_wsgi compiled with Python2.7 to use it with Python2.7</p>
+
+<p>So, let&#8217;s uninstall mod_wsgi and then build it from source</p>
+
+<figure class='code'><figcaption><span>compile mod_wsgi</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>wget http://code.google.com/p/modwsgi/downloads/detail?name<span class="o">=</span>mod_wsgi-3.4.tar.gz
+</span><span class='line'><span class="nv">$ </span>tar -xvf mod_wsgi-3.4.tar.gz
+</span><span class='line'><span class="nv">$ </span><span class="nb">cd </span>mod_wsgi-3.4
+</span><span class='line'><span class="nv">$ </span>./configure --using-python<span class="o">=</span>/usr/local/bin/python2.7
+</span><span class='line'><span class="nv">$ </span>make
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>I got this error <a href="http://code.google.com/p/modwsgi/wiki/InstallationIssues#Mixing_32_Bit_And_64_Bit_Packages">http://code.google.com/p/modwsgi/wiki/InstallationIssues#Mixing_32_Bit_And_64_Bit_Packages</a> Which means it needs Python2.7 built with x86_64 not the 32 bit.</p>
+
+<p>So, now, reinstall Python2.7</p>
+
+<figure class='code'><figcaption><span>install Python2.7</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span><span class="nb">cd </span>Python-2.7
+</span><span class='line'><span class="nv">$ </span>su
+</span><span class='line'><span class="c"># ./configure --prefix=/usr/local --enable-shared</span>
+</span><span class='line'><span class="c"># make &amp;&amp; make altinstall</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And now reinstall mod_wsgi. Wow, this has been so difficult.</p>
+
+<p>Anyway the problem doesn&#8217;t end here. Now we have to configure httpd.conf</p>
+
+<figure class='code'><figcaption><span>httpd.conf</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'>WSGISocketPrefix /var/run/wsgi
+</span><span class='line'>WSGIPythonHome /var/www/virtual
+</span><span class='line'>#WSGIPythonPath /var/www/test/virtual
+</span><span class='line'><span class="nt">&lt;VirtualHost</span> <span class="err">122.99.126.71:80</span><span class="nt">&gt;</span>
+</span><span class='line'>ServerName rhknhost
+</span><span class='line'>WSGIDaemonProcess herokufinal user=pronoy group=pronoy threads=5
+</span><span class='line'>WSGIScriptAlias / &quot;/var/www/herokufinal/herokufinal.wsgi&quot;
+</span><span class='line'>DocumentRoot /var/www/herokufinal
+</span><span class='line'>ErrorLog /var/www/herokufinal/logs/error.log
+</span><span class='line'>
+</span><span class='line'>        <span class="nt">&lt;Directory</span> <span class="err">/var/www/herokufinal</span><span class="nt">&gt;</span>
+</span><span class='line'>                WSGIProcessGroup herokufinal
+</span><span class='line'>                WSGIApplicationGroup %{GLOBAL}
+</span><span class='line'>                WSGIScriptReloading On
+</span><span class='line'>                Options Indexes FollowSymlinks Multiviews
+</span><span class='line'>                Order deny,allow
+</span><span class='line'>                Allow from all
+</span><span class='line'>        <span class="nt">&lt;/Directory&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;/VirtualHost&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And then create the .wsgi file for running the application</p>
+
+<figure class='code'><figcaption><span>myapplication.wsgi</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">activate_this</span>  <span class="o">=</span> <span class="s">&#39;/var/www/virtual/bin/activate_this.py&#39;</span>
+</span><span class='line'><span class="nb">execfile</span><span class="p">(</span><span class="n">activate_this</span><span class="p">,</span> <span class="nb">dict</span><span class="p">(</span><span class="n">__file__</span><span class="o">=</span><span class="n">activate_this</span><span class="p">))</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">sys</span>
+</span><span class='line'><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s">&#39;/var/www/herokufinal&#39;</span><span class="p">)</span>
+</span><span class='line'><span class="kn">from</span> <span class="nn">profilebuilder</span> <span class="kn">import</span> <span class="n">app</span> <span class="k">as</span> <span class="n">application</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Jesus. The time it took to figure this out. Oh God, I could&#8217;ve built a fucking house by then. 12 continuous hours. Never again CentOS. Never again.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -708,381 +883,6 @@ RET</code></pre></noscript></div>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/building-allegro-5-dot-0-with-xcode-4-dot-3-on-mac-os-x-10-dot-7-4/">Building Allegro 5.0 With Xcode 4.3 on Mac OS X 10.7.4</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-05-12T17:08:00+05:30" pubdate data-updated="true">May 12<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>So here&#8217;s the attempt to build <a href="http://allegro.cc">Allegro 5.0</a> on Mac OS X Lion 10.7.4 with the latest Xcode 4.3. As usual I am apprehensive of the outcome considering it&#8217;s Xcode. You never know, how it might break.</p>
-
-<p>Anyways, let&#8217;s follow the <a href="http://wiki.allegro.cc/index.php?title=OSX,_Xcode_4,_Framework">wiki article</a> and the first step is to obviously checkout the repository. So lets do that.</p>
-
-<figure class='code'><figcaption><span>svn checkout</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>DarkSector@DarkBookAir:~/Code<span class="nv">$ </span>svn checkout https://alleg.svn.sourceforge.net/svnroot/alleg/allegro/branches/5.0 allegro
-</span><span class='line'>Error validating server certificate <span class="k">for</span> <span class="s1">&#39;https://alleg.svn.sourceforge.net:443&#39;</span>:
-</span><span class='line'> - The certificate is not issued by a trusted authority. Use the
-</span><span class='line'>   fingerprint to validate the certificate manually!
-</span><span class='line'>Certificate information:
-</span><span class='line'> - Hostname: *.svn.sourceforge.net
-</span><span class='line'> - Valid: from Sat, 25 Feb 2012 23:58:41 GMT <span class="k">until </span>Sun, 31 Mar 2013 19:51:44 GMT
-</span><span class='line'> - Issuer: GeoTrust, Inc., US
-</span><span class='line'> - Fingerprint: 0b:11:76:de:db:4c:74:72:cb:01:49:7d:13:70:c2:f1:13:7b:cb:bf
-</span><span class='line'><span class="o">(</span>R<span class="o">)</span>eject, accept <span class="o">(</span>t<span class="o">)</span>emporarily or accept <span class="o">(</span>p<span class="o">)</span>ermanently? t
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Now that worked out well, downloaded the Allegro 5.0 Source. Next step is to build it using CMake but of course I didn&#8217;t have CMake so let&#8217;s download that</p>
-
-<figure class='code'><figcaption><span>CMake download</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>DarkSector@DarkBookAir:~<span class="nv">$ </span>brew install <span class="nv">cmake</span>
-</span><span class='line'><span class="o">==</span>&gt; Downloading https://downloads.sf.net/project/machomebrew/Bottles/cmake-2.8.8.lio
-</span><span class='line'><span class="c">######################################################################## 100.0%</span>
-</span><span class='line'><span class="o">==</span>&gt; Pouring cmake-2.8.8.lion.bottle.1.tar.gz
-</span><span class='line'>/usr/local/Cellar/cmake/2.8.8: 652 files, 30M
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Yep that did it. Now to use CMake on the source</p>
-
-<figure class='code'><figcaption><span>Building Allegro using CMake</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-<span class='line-number'>44</span>
-<span class='line-number'>45</span>
-<span class='line-number'>46</span>
-<span class='line-number'>47</span>
-<span class='line-number'>48</span>
-<span class='line-number'>49</span>
-<span class='line-number'>50</span>
-<span class='line-number'>51</span>
-<span class='line-number'>52</span>
-<span class='line-number'>53</span>
-<span class='line-number'>54</span>
-<span class='line-number'>55</span>
-<span class='line-number'>56</span>
-<span class='line-number'>57</span>
-<span class='line-number'>58</span>
-<span class='line-number'>59</span>
-<span class='line-number'>60</span>
-<span class='line-number'>61</span>
-<span class='line-number'>62</span>
-<span class='line-number'>63</span>
-<span class='line-number'>64</span>
-<span class='line-number'>65</span>
-<span class='line-number'>66</span>
-<span class='line-number'>67</span>
-<span class='line-number'>68</span>
-<span class='line-number'>69</span>
-<span class='line-number'>70</span>
-<span class='line-number'>71</span>
-<span class='line-number'>72</span>
-<span class='line-number'>73</span>
-<span class='line-number'>74</span>
-<span class='line-number'>75</span>
-<span class='line-number'>76</span>
-<span class='line-number'>77</span>
-<span class='line-number'>78</span>
-<span class='line-number'>79</span>
-<span class='line-number'>80</span>
-<span class='line-number'>81</span>
-<span class='line-number'>82</span>
-<span class='line-number'>83</span>
-<span class='line-number'>84</span>
-<span class='line-number'>85</span>
-<span class='line-number'>86</span>
-<span class='line-number'>87</span>
-<span class='line-number'>88</span>
-<span class='line-number'>89</span>
-<span class='line-number'>90</span>
-<span class='line-number'>91</span>
-<span class='line-number'>92</span>
-<span class='line-number'>93</span>
-<span class='line-number'>94</span>
-<span class='line-number'>95</span>
-<span class='line-number'>96</span>
-<span class='line-number'>97</span>
-<span class='line-number'>98</span>
-<span class='line-number'>99</span>
-<span class='line-number'>100</span>
-<span class='line-number'>101</span>
-<span class='line-number'>102</span>
-<span class='line-number'>103</span>
-<span class='line-number'>104</span>
-<span class='line-number'>105</span>
-<span class='line-number'>106</span>
-<span class='line-number'>107</span>
-<span class='line-number'>108</span>
-<span class='line-number'>109</span>
-<span class='line-number'>110</span>
-<span class='line-number'>111</span>
-<span class='line-number'>112</span>
-<span class='line-number'>113</span>
-<span class='line-number'>114</span>
-<span class='line-number'>115</span>
-<span class='line-number'>116</span>
-<span class='line-number'>117</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>DarkSector@DarkBookAir:~/Code/allegro<span class="nv">$ </span>mkdir build <span class="o">&amp;&amp;</span> <span class="nb">cd </span>build
-</span><span class='line'>DarkSector@DarkBookAir:~/Code/allegro/build<span class="nv">$ </span>cmake -G Xcode -DWANT_FRAMEWORKS<span class="o">=</span>1 - ..-- The C compiler identification is GNU 4.2.1
-</span><span class='line'>-- The CXX compiler identification is GNU 4.2.1
-</span><span class='line'>-- Checking whether C compiler has -isysroot
-</span><span class='line'>-- Checking whether C compiler has -isysroot - yes
-</span><span class='line'>-- Checking whether C compiler supports OSX deployment target flag
-</span><span class='line'>-- Checking whether C compiler supports OSX deployment target flag - yes
-</span><span class='line'>-- Check <span class="k">for </span>working C compiler using: Xcode
-</span><span class='line'>-- Check <span class="k">for </span>working C compiler using: Xcode -- works
-</span><span class='line'>-- Detecting C compiler ABI info
-</span><span class='line'>-- Detecting C compiler ABI info - <span class="k">done</span>
-</span><span class='line'>-- Checking whether CXX compiler has -isysroot
-</span><span class='line'>-- Checking whether CXX compiler has -isysroot - yes
-</span><span class='line'>-- Checking whether CXX compiler supports OSX deployment target flag
-</span><span class='line'>-- Checking whether CXX compiler supports OSX deployment target flag - yes
-</span><span class='line'>-- Check <span class="k">for </span>working CXX compiler using: Xcode
-</span><span class='line'>-- Check <span class="k">for </span>working CXX compiler using: Xcode -- works
-</span><span class='line'>-- Detecting CXX compiler ABI info
-</span><span class='line'>-- Detecting CXX compiler ABI info - <span class="k">done</span>
-</span><span class='line'>-- Allowing GCC to use SSE instructions
-</span><span class='line'>-- Could NOT find PkgConfig <span class="o">(</span>missing:  PKG_CONFIG_EXECUTABLE<span class="o">)</span>
-</span><span class='line'>-- Check <span class="k">if </span>the system is big endian
-</span><span class='line'>-- Searching 16 bit integer
-</span><span class='line'>-- Looking <span class="k">for </span>sys/types.h
-</span><span class='line'>-- Looking <span class="k">for </span>sys/types.h - found
-</span><span class='line'>-- Looking <span class="k">for </span>stdint.h
-</span><span class='line'>-- Looking <span class="k">for </span>stdint.h - found
-</span><span class='line'>-- Looking <span class="k">for </span>stddef.h
-</span><span class='line'>-- Looking <span class="k">for </span>stddef.h - found
-</span><span class='line'>-- Check size of unsigned short
-</span><span class='line'>-- Check size of unsigned short - <span class="k">done</span>
-</span><span class='line'>-- Using unsigned short
-</span><span class='line'>-- Check <span class="k">if </span>the system is big endian - little endian
-</span><span class='line'>-- Looking <span class="k">for </span>include file dirent.h
-</span><span class='line'>-- Looking <span class="k">for </span>include file dirent.h - found
-</span><span class='line'>-- Looking <span class="k">for </span>include file inttypes.h
-</span><span class='line'>-- Looking <span class="k">for </span>include file inttypes.h - found
-</span><span class='line'>-- Looking <span class="k">for </span>include files sys/types.h, linux/joystick.h
-</span><span class='line'>-- Looking <span class="k">for </span>include files sys/types.h, linux/joystick.h - not found.
-</span><span class='line'>-- Looking <span class="k">for </span>include file stdbool.h
-</span><span class='line'>-- Looking <span class="k">for </span>include file stdbool.h - found
-</span><span class='line'>-- Looking <span class="k">for </span>include file stdint.h
-</span><span class='line'>-- Looking <span class="k">for </span>include file stdint.h - found
-</span><span class='line'>-- Looking <span class="k">for </span>include file sys/io.h
-</span><span class='line'>-- Looking <span class="k">for </span>include file sys/io.h - not found.
-</span><span class='line'>-- Looking <span class="k">for </span>include file sys/stat.h
-</span><span class='line'>-- Looking <span class="k">for </span>include file sys/stat.h - found
-</span><span class='line'>-- Looking <span class="k">for </span>include file sys/time.h
-</span><span class='line'>-- Looking <span class="k">for </span>include file sys/time.h - found
-</span><span class='line'>-- Looking <span class="k">for </span>include file time.h
-</span><span class='line'>-- Looking <span class="k">for </span>include file time.h - found
-</span><span class='line'>-- Looking <span class="k">for </span>include file sys/utsname.h
-</span><span class='line'>-- Looking <span class="k">for </span>include file sys/utsname.h - found
-</span><span class='line'>-- Looking <span class="k">for </span>include file sys/types.h
-</span><span class='line'>-- Looking <span class="k">for </span>include file sys/types.h - found
-</span><span class='line'>-- Looking <span class="k">for </span>include file soundcard.h
-</span><span class='line'>-- Looking <span class="k">for </span>include file soundcard.h - not found.
-</span><span class='line'>-- Looking <span class="k">for </span>include file sys/soundcard.h
-</span><span class='line'>-- Looking <span class="k">for </span>include file sys/soundcard.h - not found.
-</span><span class='line'>-- Looking <span class="k">for </span>include file machine/soundcard.h
-</span><span class='line'>-- Looking <span class="k">for </span>include file machine/soundcard.h - not found.
-</span><span class='line'>-- Looking <span class="k">for </span>include file linux/soundcard.h
-</span><span class='line'>-- Looking <span class="k">for </span>include file linux/soundcard.h - not found.
-</span><span class='line'>-- Looking <span class="k">for </span>include file libkern/OSAtomic.h
-</span><span class='line'>-- Looking <span class="k">for </span>include file libkern/OSAtomic.h - found
-</span><span class='line'>-- Looking <span class="k">for </span>include file sys/inotify.h
-</span><span class='line'>-- Looking <span class="k">for </span>include file sys/inotify.h - not found.
-</span><span class='line'>-- Looking <span class="k">for </span>include file sys/timerfd.h
-</span><span class='line'>-- Looking <span class="k">for </span>include file sys/timerfd.h - not found.
-</span><span class='line'>-- Looking <span class="k">for </span>getexecname
-</span><span class='line'>-- Looking <span class="k">for </span>getexecname - not found
-</span><span class='line'>-- Looking <span class="k">for </span>mkstemp
-</span><span class='line'>-- Looking <span class="k">for </span>mkstemp - found
-</span><span class='line'>-- Looking <span class="k">for </span>mmap
-</span><span class='line'>-- Looking <span class="k">for </span>mmap - found
-</span><span class='line'>-- Looking <span class="k">for </span>mprotect
-</span><span class='line'>-- Looking <span class="k">for </span>mprotect - found
-</span><span class='line'>-- Looking <span class="k">for </span>sched_yield
-</span><span class='line'>-- Looking <span class="k">for </span>sched_yield - found
-</span><span class='line'>-- Looking <span class="k">for </span>sysconf
-</span><span class='line'>-- Looking <span class="k">for </span>sysconf - found
-</span><span class='line'>-- Looking <span class="k">for </span>fseeko
-</span><span class='line'>-- Looking <span class="k">for </span>fseeko - found
-</span><span class='line'>-- Looking <span class="k">for </span>ftello
-</span><span class='line'>-- Looking <span class="k">for </span>ftello - found
-</span><span class='line'>-- Check size of _Bool
-</span><span class='line'>-- Check size of _Bool - <span class="k">done</span>
-</span><span class='line'>-- Performing Test ALLEGRO_HAVE_PROCFS_ARGCV
-</span><span class='line'>-- Performing Test ALLEGRO_HAVE_PROCFS_ARGCV - Failed
-</span><span class='line'>-- Performing Test ALLEGRO_HAVE_SV_PROCFS_H
-</span><span class='line'>-- Performing Test ALLEGRO_HAVE_SV_PROCFS_H - Failed
-</span><span class='line'>-- Performing Test ALLEGRO_HAVE_VA_COPY
-</span><span class='line'>-- Performing Test ALLEGRO_HAVE_VA_COPY - Success
-</span><span class='line'>-- Check <span class="k">if </span>constructors are supported - yes
-</span><span class='line'>-- Found OpenGL: /System/Library/Frameworks/OpenGL.framework
-</span><span class='line'>-- Looking <span class="k">for </span>include file pthread.h
-</span><span class='line'>-- Looking <span class="k">for </span>include file pthread.h - found
-</span><span class='line'>-- Looking <span class="k">for </span>pthread_create
-</span><span class='line'>-- Looking <span class="k">for </span>pthread_create - found
-</span><span class='line'>-- Found Threads: TRUE
-</span><span class='line'>-- Found OpenAL: /System/Library/Frameworks/OpenAL.framework
-</span><span class='line'>-- Could NOT find FLAC <span class="o">(</span>missing:  FLAC_INCLUDE_DIR FLAC_LIBRARY<span class="o">)</span>
-</span><span class='line'>WARNING: libFLAC not found or compile <span class="nb">test </span>failed, disabling support.
-</span><span class='line'>-- Could NOT find DUMB <span class="o">(</span>missing:  DUMB_INCLUDE_DIR DUMB_LIBRARY<span class="o">)</span>
-</span><span class='line'>WARNING: libdumb not found or compile <span class="nb">test </span>failed, disabling support. &lt;http://dumb.sourceforge.net/&gt;
-</span><span class='line'>-- Found OGG: /Library/Frameworks/ogg.framework
-</span><span class='line'>-- Could NOT find VORBIS <span class="o">(</span>missing:  VORBISFILE_LIBRARY<span class="o">)</span>
-</span><span class='line'>WARNING: libvorbis not found or compile <span class="nb">test </span>failed, disabling support.
-</span><span class='line'>-- Found Freetype: /Library/Frameworks/freetype.framework
-</span><span class='line'>-- Found ZLIB: /usr/lib/libz.dylib <span class="o">(</span>found version <span class="s2">&quot;1.2.5&quot;</span><span class="o">)</span>
-</span><span class='line'>-- Found PhysFS: /Library/Frameworks/physfs.framework
-</span><span class='line'>-- Found PHYSFS: /Library/Frameworks/physfs.framework
-</span><span class='line'>-- Performing Test PHYSFS_IMPLICIT_ZLIB
-</span><span class='line'>-- Performing Test PHYSFS_IMPLICIT_ZLIB - Success
-</span><span class='line'>-- Configuring <span class="k">done</span>
-</span><span class='line'>-- Generating <span class="k">done</span>
-</span><span class='line'>-- Build files have been written to: /Users/DarkSector/Code/allegro/build
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Woah hang on there a minute. No FLAC support, no DUMB and no VORBIS. Hmm, okay let&#8217;s get that too. I mean while we&#8217;re at it what&#8217;s the point in leaving it out. So let&#8217;s build FLAC, VORBIS, DUMB</p>
-
-<figure class='code'><figcaption><span>dumb vorbis flac and pkgconfig</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>DarkSector@DarkBookAir:~/Code/allegro/build<span class="nv">$ </span>brew install flac; brew install libvorbis <span class="o">&amp;&amp;</span> brew install pkgconfig
-</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><figcaption><span>After installing libvorbis libflac and pkgconfig</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>DarkSector@DarkBookAir:~/Code/allegro/build<span class="nv">$ </span>cmake -G Xcode -D <span class="nv">WANT_FRAMEWORKS</span><span class="o">=</span>1 - ..
-</span><span class='line'>-- Allowing GCC to use SSE instructions
-</span><span class='line'>-- Found PkgConfig: /usr/local/bin/pkg-config <span class="o">(</span>found version <span class="s2">&quot;0.25&quot;</span><span class="o">)</span>
-</span><span class='line'>-- Could NOT find FLAC <span class="o">(</span>missing:  FLAC_INCLUDE_DIR FLAC_LIBRARY<span class="o">)</span>
-</span><span class='line'>WARNING: libFLAC not found or compile <span class="nb">test </span>failed, disabling support.
-</span><span class='line'>-- Could NOT find DUMB <span class="o">(</span>missing:  DUMB_INCLUDE_DIR DUMB_LIBRARY<span class="o">)</span>
-</span><span class='line'>WARNING: libdumb not found or compile <span class="nb">test </span>failed, disabling support. &lt;http://dumb.sourceforge.net/&gt;
-</span><span class='line'>-- Performing Test VORBIS_COMPILES
-</span><span class='line'>-- Performing Test VORBIS_COMPILES - Success
-</span><span class='line'>-- Configuring <span class="k">done</span>
-</span><span class='line'>-- Generating <span class="k">done</span>
-</span><span class='line'>-- Build files have been written to: /Users/DarkSector/Code/allegro/build
-</span><span class='line'>DarkSector@DarkBookAir:~/Code/allegro/build<span class="nv">$ </span>cmake -G Xcode -DWANT_FRAMEWORKS<span class="o">=</span>1 - ..
-</span><span class='line'>-- Allowing GCC to use SSE instructions
-</span><span class='line'>-- Found FLAC: /usr/local/include
-</span><span class='line'>-- Performing Test FLAC_COMPILES
-</span><span class='line'>-- Performing Test FLAC_COMPILES - Success
-</span><span class='line'>-- Could NOT find DUMB <span class="o">(</span>missing:  DUMB_INCLUDE_DIR DUMB_LIBRARY<span class="o">)</span>
-</span><span class='line'>WARNING: libdumb not found or compile <span class="nb">test </span>failed, disabling support. &lt;http://dumb.sourceforge.net/&gt;
-</span><span class='line'>-- Configuring <span class="k">done</span>
-</span><span class='line'>-- Generating <span class="k">done</span>
-</span><span class='line'>-- Build files have been written to: /Users/DarkSector/Code/allegro/build
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>So as it turns out there is no libdumb formula on brew. I think I&#8217;ll contribute and add it. That&#8217;ll be pretty cool. Anyways back to the job at hand.</p>
-
-<p>So that&#8217;s built it. Now to start programming I guess.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -1098,6 +898,10 @@ RET</code></pre></noscript></div>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/my-experience-with-centos-5-dot-8-and-setting-up-flask/">My experience with CentOS 5.8 and setting up Flask</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/finally-got-allegro-5-working-on-mac-os-x/">Finally got Allegro 5 working on Mac OS X</a>
       </li>
     
@@ -1111,10 +915,6 @@ RET</code></pre></noscript></div>
     
       <li class="post">
         <a href="/blog/configured-linksys-wrt120n-bye-bye-old-wifi/">Configured Linksys WRT120N: Bye bye old Wifi</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/heroku-is-full-of-surprises/">Heroku is full of surprises</a>
       </li>
     
   </ul>
