@@ -133,7 +133,7 @@
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://DarkSector.github.com/blog/replaced-spotlight-with-quicksilver/" data-via="" data-counturl="http://DarkSector.github.com/blog/replaced-spotlight-with-quicksilver/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://DarkSector.github.com/blog/replaced-spotlight-with-quicksilver/" data-via="pronoyc" data-counturl="http://DarkSector.github.com/blog/replaced-spotlight-with-quicksilver/" >Tweet</a>
   
   
   
@@ -179,6 +179,26 @@
         <a href="/blog/nasas-iss-live-stream/">NASAs ISS live stream</a>
       </li>
     
+      <li class="post">
+        <a href="/blog/configured-linksys-wrt120n-bye-bye-old-wifi/">Configured Linksys WRT120N: Bye bye old Wifi</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/heroku-is-full-of-surprises/">Heroku is full of surprises</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/avr-assembly/">AVR Assembly revisted</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/my-experience-with-pymongo-till-now/">My experience with Pymongo till now</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/replaced-spotlight-with-quicksilver/">Replaced Spotlight with QuickSilver</a>
+      </li>
+    
   </ul>
 </section>
 
@@ -211,6 +231,22 @@
   <script src="/javascripts/github.js" type="text/javascript"> </script>
 </section>
 
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("pronoyc", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/pronoyc" class="twitter-follow-button" data-show-count="true">Follow @pronoyc</a>
+  
+</section>
 
 
 
