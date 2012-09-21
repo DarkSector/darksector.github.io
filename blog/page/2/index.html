@@ -9,7 +9,7 @@
   <meta name="author" content="Pronoy Chopra">
 
   
-  <meta name="description" content="So here&#8217;s the attempt to build Allegro 5.0 on Mac OS X Lion 10.7.4 with the latest Xcode 4.3. As usual I am apprehensive of the outcome &hellip;">
+  <meta name="description" content="So in a yet another failure of an experience with the Mac Mini I have now realized why Apple is trying to put in SSD in all its products. I think it &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -64,6 +64,48 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/spotlight-slash-mds-the-memory-hogger/">Spotlight/mds the Memory Hogger</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-05-14T12:09:00+05:30" pubdate data-updated="true">May 14<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>So in a yet another failure of an experience with the Mac Mini I have now realized why Apple is trying to put in SSD in all its products. I think it&#8217;s because of the memory hogger called mds. It is supposed sit quietly and index files but as it turns out, the bugger takes almost 50 percent of the RAM.</p>
+
+<p><img src="http://f.cl.ly/items/3J3c3F3i1s0R1f2b1X1s/Screen%20Shot%202012-05-14%20at%2012.04.32%20PM.png"></p>
+
+<p>The highlighted one is the one I am talking about. I think I need to disable spotlight and put in QuickSilver.</p>
+
+<p>I shall call my app, GetLostSpotlight. The code will be on Github obviously.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -1624,59 +1666,9 @@ I came across this when I was looking for ways to represent data in real time on
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/octopress-problem/">Octopress Problem</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-04-17T00:52:00+05:30" pubdate data-updated="true">Apr 17<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><figure class='code'><figcaption><span>CNAME</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span><span class="nb">echo</span> <span class="s2">&quot;pronoy.blog.in&quot;</span> &gt;&gt; CNAME
-</span><span class='line'><span class="nv">$ </span>git add CNAME
-</span><span class='line'><span class="nv">$ </span>git commit -m <span class="s1">&#39;added CNAME&#39;</span>
-</span><span class='line'><span class="nv">$ </span>git push origin master
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Every time I deploy it removes the CNAME record from the master branch. I wonder how to get it deployed properly.</p>
-
-<p>Really weird, I&#8217;ll have to keep looking.
-Oh btw, it&#8217;s my birthday today :)</p>
-
-<p>EDIT: resolved, you need to generate the CNAME in source for it to automatically pick it up and commit it to the master. Smart.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
+    
+      <a class="prev" href="/blog/page/3/">&larr; Older</a>
     
     <a href="/blog/archives">Blog Archives</a>
     
@@ -1689,6 +1681,10 @@ Oh btw, it&#8217;s my birthday today :)</p>
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/transcripts/">Transcripts</a>
+      </li>
     
       <li class="post">
         <a href="/blog/my-experience-with-centos-5-dot-8-and-setting-up-flask/">My experience with CentOS 5.8 and setting up Flask</a>
@@ -1704,10 +1700,6 @@ Oh btw, it&#8217;s my birthday today :)</p>
     
       <li class="post">
         <a href="/blog/nasas-iss-live-stream/">NASAs ISS live stream</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/configured-linksys-wrt120n-bye-bye-old-wifi/">Configured Linksys WRT120N: Bye bye old Wifi</a>
       </li>
     
   </ul>
