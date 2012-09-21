@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Linux | Pronoy Chopra's Blog]]></title>
   <link href="http://DarkSector.github.com/blog/categories/linux/atom.xml" rel="self"/>
   <link href="http://DarkSector.github.com/"/>
-  <updated>2012-08-26T04:24:20+05:30</updated>
+  <updated>2012-09-21T16:21:01+05:30</updated>
   <id>http://DarkSector.github.com/</id>
   <author>
     <name><![CDATA[Pronoy Chopra]]></name>
@@ -22,33 +22,26 @@
 
 <p>So I began with installing Python2.7.3 first.</p>
 
-<p>```bash install Python2.7
+<p><code>bash install Python2.7
 $ wget http://www.python.org/ftp/python/2.7/Python-2.7.tgz
 $ tar -xvf Python-2.7.tgz
 $ cd Python-2.7
-$ su</p>
-
-<h1>./configure --prefix=/usr/local</h1>
-
-<h1>make &amp;&amp; make altinstall</h1>
-
-<p>```</p>
+$ su
+root$ ./configure --prefix=/usr/local
+root$ make &amp;&amp; make altinstall
+</code></p>
 
 <p>Now we have Python2.7 binary in /usr/local/bin and we can go about installing Setuptools</p>
 
-<p>```bash install Setuptools
+<p><code>bash install Setuptools
 $ wget http://pypi.python.org/packages/source/s/setuptools/setuptools-0.6c11.tar.gz#md5=7df2a529a074f613b509fb44feefe74e
 $ tar -xvf setuptools-0.6c11.tar.gz
 $ cd setuptools-0.6c11
-$ su</p>
-
-<h1>python2.7 setup.py install</h1>
-
-<h1>easy_install-2.7 install pip</h1>
-
-<h1>pip-2.7 install virtualenv</h1>
-
-<p>```
+$ su
+root$ python2.7 setup.py install
+root$ easy_install-2.7 install pip
+root$ pip-2.7 install virtualenv
+</code>
 Now, after having done all of this, I needed to install mod_wsgi</p>
 
 <p><code>bash mod_wsgi
@@ -71,15 +64,12 @@ $ make
 
 <p>So, now, reinstall Python2.7</p>
 
-<p>```bash install Python2.7
+<p><code>bash install Python2.7
 $ cd Python-2.7
-$ su</p>
-
-<h1>./configure --prefix=/usr/local --enable-shared</h1>
-
-<h1>make &amp;&amp; make altinstall</h1>
-
-<p>```</p>
+$ su
+root$ ./configure --prefix=/usr/local --enable-shared
+root$ make &amp;&amp; make altinstall
+</code></p>
 
 <p>And now reinstall mod_wsgi. Wow, this has been so difficult.</p>
 
