@@ -7,7 +7,7 @@ categories: Git
 
 Some git stuff I use often but for some reason I keep forgetting
 
-1. Setting per repo config
+## Setting per repo config
 
  ```
  [core]
@@ -30,15 +30,15 @@ Some git stuff I use often but for some reason I keep forgetting
 	merge = refs/heads/master
  ```
 
-2. Undo git add 
+## Undo git add 
 
   `git reset <filename>`
 
-3. Amend a commit
+## Amend a commit
  
  `git commit --amend`
 
-4. Undo the last commit and keep changes
+## Undo the last commit and keep changes
 
   `git reset --soft HEAD~1`
 
