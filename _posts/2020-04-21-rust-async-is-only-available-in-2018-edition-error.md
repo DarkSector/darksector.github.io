@@ -13,9 +13,11 @@ Despite what [this issue says](https://github.com/intellij-rust/intellij-rust/is
 
 When you create a rust project you need to have a parent `Cargo.toml` file declaring workspaces in order for this plugin to recognize a binary. Here's an example
 
-`mkdir parent-directory && cd parent-directory`
-`cargo bin --new myproject`
-`touch Cargo.toml`
+```
+mkdir parent-directory && cd parent-directory
+cargo bin --new myproject
+touch Cargo.toml
+```
 
 Your parent Cargo.toml should like this
 
