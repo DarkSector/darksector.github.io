@@ -15,7 +15,7 @@ When you create a rust project you need to have a parent `Cargo.toml` file decla
 
 ```
 mkdir parent-directory && cd parent-directory
-cargo bin --new myproject
+cargo new --bin myproject
 touch Cargo.toml
 ```
 
