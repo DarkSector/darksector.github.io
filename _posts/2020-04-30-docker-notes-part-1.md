@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Docker notes - part 1
+title: Docker Notes - Part 1
 date: 2020-04-30 23:04 -0700
 categories: docker devops deployment containers
 ---
