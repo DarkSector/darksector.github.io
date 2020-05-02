@@ -26,3 +26,38 @@ Now to build them - `docker-compose build` and then to run them `docker-compose 
 To daemonize them so that they run in background `docker-compose up -d`
 
 To bring them down `docker-compose down`
+
+## Error handling within containers
+
+Stuff crashes all the time so there has to be a way to restart the container if it fails for some reason. 
+
+So Docker has restart policies in place according to the exit code it receives.
+
+```yaml
+'no': "Never attempt to restart"
+always: "If container stops for any reason - restart it"
+on-failure: Only restart if stopped with an error code
+unless-stopped: always restart till forced to stop (manually)
+```
+
+We just add the `restart` key under the container to instate the police
+
+```yaml
+version: '3'
+services: 
+    redis-server:
+        image: 'redis' # use redis image
+
+    visits:
+        restart: always
+        build: .
+        ports:
+            - "4001:8081" # host:container
+```
+
+This will restart no matter what. 
+
+
+## Checking status
+
+So just like `docker ps` we have `docker-compose ps` as well. But just like the other commands it needs to be run in the directory where you have `docker-compose.yml` for a targetted status
