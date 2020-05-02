@@ -2,7 +2,7 @@
 layout: post
 title: Docker Notes Part 2
 date: 2020-05-02 00:30 -0700
-categories: docker devops deployment containers
+categories: Docker DevOps Deployment Containers
 ---
 
 Now that the basics are down, time to actually create a simple app and dockerize it. A simple python Flask app should do it.

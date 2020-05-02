@@ -2,7 +2,7 @@
 layout: post
 title: Docker Notes - Part 1
 date: 2020-04-30 23:04 -0700
-categories: docker devops deployment containers
+categories: Docker DevOps Deployment Containers
 ---
 
 I am not a big fan of Docker because I think it creates more problems than it solves. However I've needed to use it for work because well - nevermind. Anyway, here are some Docker notes I am keeping for myself so that I can refer them later.
