@@ -67,6 +67,20 @@ So just like `docker ps` we have `docker-compose ps` as well. But just like the 
 
 Oh dear lord. Why does Docker do this? One of the dumbest things I've seen in any util. Let us specify context manually - why is there a wall around where I can send the files from? 
 
+Here's the directory structure: 
+
+```
+    parent_directory
+        src_code1
+        src_code2
+        src_code3
+        docker_stuff
+             project
+                Dockerfile
+                .dockerignore
+                docker-compose.yml
+```
+
 Anyway, here's how to specify context and a custom Dockerfile
 
 ```yaml
@@ -84,9 +98,10 @@ services:
             - "4001:8081" # host:container
 ```
 
-[Apparently according to this post](https://github.com/docker/compose/issues/4926) dockerfile is relative to context. However, it doesn't seem like it. That's why using `$PWD` is required. 
+[Apparently according to this post](https://github.com/docker/compose/issues/4926) dockerfile is relative to context. If that were true this wouldn't have worked `$PWD/Dockerfile` 
 
 One aspect of Docker is that it builds everything serially. However that can be sped up by using something called **BuildKit**
+
 
 BuildKit brings concurrency into the game and it's probably the best way to build containers. However, we need a bit of a hack to pass the actual BuildKit environment variable via the cli. That's how to pass it through to `docker-compose`
 
