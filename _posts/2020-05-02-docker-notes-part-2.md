@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Docker Notes Part 2
+title: Docker Notes - Part 2
 date: 2020-05-02 00:30 -0700
 categories: Docker DevOps Deployment Containers
 ---
