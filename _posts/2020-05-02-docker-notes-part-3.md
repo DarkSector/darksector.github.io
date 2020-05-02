@@ -61,3 +61,34 @@ This will restart no matter what.
 ## Checking status
 
 So just like `docker ps` we have `docker-compose ps` as well. But just like the other commands it needs to be run in the directory where you have `docker-compose.yml` for a targetted status
+
+
+## Docker compose build context
+
+Oh dear lord. Why does Docker do this? One of the dumbest things I've seen in any util. Let us specify context manually - why is there a wall around where I can send the files from? 
+
+Anyway, here's how to specify context and a custom Dockerfile
+
+```yaml
+version: '3'
+services: 
+    redis-server:
+        image: 'redis' # use redis image
+    visits:
+        restart: always
+        build:
+            context: ../..
+            dockerfile: ${PWD}/Dockerfile
+
+        ports:
+            - "4001:8081" # host:container
+```
+
+[Apparently according to this post](https://github.com/docker/compose/issues/4926) dockerfile is relative to context. However, it doesn't seem like it. That's why using `$PWD` is required. 
+
+One aspect of Docker is that it builds everything serially. However that can be sped up by using something called **BuildKit**
+
+BuildKit brings concurrency into the game and it's probably the best way to build containers. However, we need a bit of a hack to pass the actual BuildKit environment variable via the cli. That's how to pass it through to `docker-compose`
+
+`COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 docker-compose build`
+
