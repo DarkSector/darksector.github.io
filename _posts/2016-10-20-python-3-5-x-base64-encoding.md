@@ -11,8 +11,7 @@ Now, the samples are shit. They don't mention this will work with python2 only. 
 
 You get an output `'U29tZSBTdHJpbmc='`. However let's try that with Python 3.5.2 and you get:
 
-```
-python
+```python
 Traceback (most recent call last): 
 File "<stdin>", line 1, in <module>
 File "/usr/local/Cellar/python3/3.5.2_1/Frameworks/Python.framework/Versions/3.5/lib/python3.5/base64.py", line 119, in urlsafe_b64encode
