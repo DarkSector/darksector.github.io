@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Questions I am too afraid
+title: Questions I am too afraid to ask
 date: 2020-05-09 18:54 -0700
 categories: Planning Development Preperation
 ---
