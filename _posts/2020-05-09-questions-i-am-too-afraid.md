@@ -15,3 +15,7 @@ I am going to periodically list all the questions that I want to answer here and
 2. What is the difference between concurrency and parallelism and are they interchangable? 
 3. Why is Rust so loved? How is it better than other languages?
 4. What is SVG? How is it different from Canvas? What is it an alternative to? And how is it better?
+5. What are the different pieces of OpenGL? What does it take to display something on the screen? 
+
+
+(This list is not even close to being complete ...)
