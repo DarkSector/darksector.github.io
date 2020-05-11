@@ -38,7 +38,7 @@ Alright, so we have the basics down, lets look at the implementation of async co
 
 ### Javascript Callbacks
 
-Now as previously stated, async code is useful so that our user can retain control while JS does its thing in the background. But since the purpose of the whole operation may be dependent on that one async block we need for it to join our main execution order. The data needs to be fetched and soemthing needs to be done with it. That's why we need something that can handle the result of the async code that got exceuted.
+Now as previously stated, async code is useful so that our user can retain control while JS does its thing in the background. But since the purpose of the whole operation may be dependent on that one async block we need for it to join our main execution order. The data needs to be fetched and something needs to be done with it. That's why we need something that can handle the result of the async code that got executed.
 
 For that, Javascript has had something called `async callbacks` which used to call the specified piece of code once the background task was accomplished. An example, taken from Mozilla's own [documentation](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener) is `addEventListener()`
 
