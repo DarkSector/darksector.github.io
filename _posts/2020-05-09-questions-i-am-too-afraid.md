@@ -12,7 +12,7 @@ Okay full confession - there are things I've used regularly in the past that I d
 I am going to periodically list all the questions that I want to answer here and link them to the posts that answer them. Let's start simple
 
 1. What is async/await? Is it the same thing across different languages?
-    * <a href="/async/javascript/2020/05/09/what-is-async-await-exploring-this-using-javascript.html">Javascript</a>
+    * <a href="/async/javascript/2020/05/10/what-is-async-await-exploring-this-using-javascript.html">Javascript</a>
     * Python
     * Rust  
 2. What is the difference between concurrency and parallelism and are they interchangable? 
