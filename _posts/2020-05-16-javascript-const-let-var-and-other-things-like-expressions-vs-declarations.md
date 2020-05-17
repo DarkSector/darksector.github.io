@@ -236,3 +236,5 @@ Posts I've read to understand all of this:
 * [https://mathiasbynens.be/notes/es6-const](https://mathiasbynens.be/notes/es6-const)
 * [https://dmitripavlutin.com/variables-lifecycle-and-why-let-is-not-hoisted/](https://dmitripavlutin.com/variables-lifecycle-and-why-let-is-not-hoisted/)
 * [https://www.vojtechruzicka.com/javascript-hoisting-var-let-const-variables/](https://www.vojtechruzicka.com/javascript-hoisting-var-let-const-variables/)
+* [https://javascript.info/var](https://javascript.info/var)
+* [https://www.ecma-international.org/ecma-262/5.1/#sec-13](https://www.ecma-international.org/ecma-262/5.1/#sec-13)
