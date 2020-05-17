@@ -222,3 +222,17 @@ const myConstFunction = () => {};
 
 
 Phew, so now I finally understand how and why we can use `let`, `const`, `var` as variables and even function expressions.
+
+
+Posts I've read to understand all of this:
+
+* [https://kangax.github.io/nfe/#expr-vs-decl](https://kangax.github.io/nfe/#expr-vs-decl)
+* [https://stackoverflow.com/questions/43709005/let-const-and-var-on-global-functions-in-javascript](https://stackoverflow.com/questions/43709005/let-const-and-var-on-global-functions-in-javascript)
+* [https://stackoverflow.com/questions/45846053/named-function-expression-with-let-or-const-in-es6](https://stackoverflow.com/questions/45846053/named-function-expression-with-let-or-const-in-es6
+)
+* [https://stackoverflow.com/questions/34181804/anonymous-function-vs-const-function-javascript](https://stackoverflow.com/questions/34181804/anonymous-function-vs-const-function-javascript)
+* [https://stackoverflow.com/questions/33040703/proper-use-of-const-for-defining-functions-in-javascript](https://stackoverflow.com/questions/33040703/proper-use-of-const-for-defining-functions-in-javascript)
+* [https://ponyfoo.com/articles/const-variables-not-immutable](https://ponyfoo.com/articles/const-variables-not-immutable)
+* [https://mathiasbynens.be/notes/es6-const](https://mathiasbynens.be/notes/es6-const)
+* [https://dmitripavlutin.com/variables-lifecycle-and-why-let-is-not-hoisted/](https://dmitripavlutin.com/variables-lifecycle-and-why-let-is-not-hoisted/)
+* [https://www.vojtechruzicka.com/javascript-hoisting-var-let-const-variables/](https://www.vojtechruzicka.com/javascript-hoisting-var-let-const-variables/)
