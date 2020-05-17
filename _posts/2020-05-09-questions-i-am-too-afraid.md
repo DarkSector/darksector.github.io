@@ -21,5 +21,8 @@ I am going to periodically list all the questions that I want to answer here and
 5. What are the different pieces of OpenGL? What does it take to display something on the screen? 
 6. What is the event loop? Why is it used? 
 7. <a href="/javascript/2020/05/17/javascript-const-let-var-and-other-things-like-expressions-vs-declarations.html">What are the ES2015 keywords const & let and what problems do they solve?</a>
+8. What is Kubernetes and why is it such a great tool?
+9. What are react hooks and why are people so against using classes?
+10. What are some of the software applications of Crypto? How can you create your own coin?
 
 (This list is not even close to being complete ...)
