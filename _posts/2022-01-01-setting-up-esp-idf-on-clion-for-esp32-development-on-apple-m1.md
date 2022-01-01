@@ -5,9 +5,9 @@ date: 2022-01-01 03:28 -0800
 categories: CLion C/C++ ESP32 Microcontrollers AppleM1
 ---
 
-I've been trying to get a better toolchain + build system going for ESP32 boards. I prefer working with JetBrains IDEs and I like where I can just use the shortcuts to work with the device directly. I've been using [M5Stack Core 2 for AWS](https://devices.amazonaws.com/detail/a3G0h000007djMLEAY/M5Stack-Core2-ESP32-IoT-Development-Kit-for-AWS) development kit to create a device for my door while simultaneously learning how to prepare for scale using AWS IoT.
+<img src="/assets/posts/2022-01-01-setting-up-esp-idf-on-clion-for-esp32-development-on-apple-m1/header_image.png" alt="m1_core2aws" width="500" height="200" />
 
-<img src="/assets/posts/2022-01-01-setting-up-esp-idf-on-clion-for-esp32-development-on-apple-m1/header_image.png" alt="m1_core2aws" width="800" />
+I've been trying to get a better toolchain + build system going for ESP32 boards. I prefer working with JetBrains IDEs and I like where I can just use the shortcuts to work with the device directly. I've been using [M5Stack Core 2 for AWS](https://devices.amazonaws.com/detail/a3G0h000007djMLEAY/M5Stack-Core2-ESP32-IoT-Development-Kit-for-AWS) development kit to create a device for my door while simultaneously learning how to prepare for scale using AWS IoT.
 
 The official [AWS Edukit tutorials](https://edukit.workshop.aws/) rely on a toolchain package called [PlatformIO](https://platformio.org/). The latter is a grea tool but feels clunky especially since it's a extension built for VSCode. I prefer a good understanding of the toolchain I am working with and good use of the terminal. So here're the steps I took to use ESP32 on CLion on Apple Macbook Pro M1. 
 
