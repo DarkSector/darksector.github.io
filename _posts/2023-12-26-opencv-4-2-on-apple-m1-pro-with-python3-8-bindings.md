@@ -2,7 +2,7 @@
 layout: post
 title: OpenCV 4.2 on Apple M1 (Pro) with Python3.8 bindings
 date: 2023-12-26 01:26 -0800
-categories: OpenCV Python Apple M1
+categories: OpenCV Python AppleM1
 ---
 
 I wasted 2 hours on building OpenCV 4.2.0 from source on Apple M1 Pro with Python3.8 bindings. Here are the steps if anyone else is stuck on this. I am on Mac OS Mojave btw.
